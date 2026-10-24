@@ -1,3 +1,65 @@
+<div align="center">
+  <img src="images/banner.webp" width="660">
+
+  # Exploirateurs de bruines
+
+  Système de jeu pour [Encounter+](https://itunes.apple.com/us/app/encounter+/id1170693487?ls=1&mt=8)
+
+  ![Version](https://img.shields.io/badge/version-1.0.0-blue)
+  ![Encounter+](https://img.shields.io/badge/Encounter%2B-%E2%89%A5%205.1.0-green)
+  ![Langues](https://img.shields.io/badge/langues-FR%20%7C%20EN-lightgrey)
+</div>
+
+*Exploirateurs de bruines* est un jeu de rôle de fantasy post-apocalyptique inspiré de l'OSR, de Vivien Féasson (éd. L'Averse), où des enfants perdus bravent la pluie et les monstres de la Ville.
+
+
+> [!NOTE]
+> Ce système ne contient pas de contenu du jeu (règles, ressources, images…). Il fournit la structure nécessaire au système : les fiches, les vues, le thème et les réglages. Le contenu doit être saisi manuellement dans la bibliothèque d'Encounter+.
+
+## Installation
+
+1. Téléchargez `edb.system` dans la [dernière version](https://github.com/BriocheMasquee/edb/releases/latest).
+2. Ouvrez le fichier avec Encounter+ (Réglages, puis Import, ou touchez le fichier là où votre appareil le propose). Le système s'installe et devient le système principal.
+
+Testé avec Encounter+ 5.1.0 (build 4644).
+
+## Bien démarrer
+
+**Initiative.** Le livre n'a pas d'initiative : les Exploirateurs agissent, puis MD réagit. Le système lance quand même une valeur pour tous les combattants au début du combat, et vous choisissez la formule dans les réglages du système (groupe « Initiative ») :
+
+| Type d'initiative | Valeur |
+|---|---|
+| Selon la règle (par défaut) | Exploirateurs 1, bestioles 0. Le MD ajuste à la main. |
+| Test « Tu m'attraperas pas ! » | Exploirateur : 7 si le test réussit, 0 sinon. Bestiole : sa vitesse. |
+| Valeur de vitesse | Bestiole : sa vitesse. Exploirateur : celle d'un gaminot. |
+
+Les vitesses vont de la tortue (1) au guépard (6).
+
+**Cartes.** Le livre compte en cases. Dans les réglages de chaque carte, mettez l'échelle à `1` et l'unité à `sq`.
+
+**Images.** Les réglages du système (groupe « Interface ») permettent de choisir l'image affichée dans les listes et dans le suivi de combat : icône, image ou jeton.
+
+## Limites actuelles
+
+- Le repos (récupération de points de vie) et l'état « foutu » d'un objet usé se gèrent à la main.
+- Aucun contenu du jeu n'est fourni.
+
+## Crédits et licences
+
+*Exploirateurs de bruines* est © L'Averse. Concept, textes et publication : Vivien Féasson. Conception artistique, illustrations et mise en page : Willy Cabourdin.
+
+Ce système est un projet de la communauté. Encounter+, son nom et ses ressources visuelles restent la propriété de leurs propriétaires respectifs.
+
+Polices : [Merriweather](fonts/OFL-Merriweather.txt), [Oswald](fonts/OFL-Oswald.txt) et [Covered By Your Grace](fonts/OFL-Covered%20By%20Your%20Grace.txt), sous licence SIL Open Font License.
+
+Système réalisé par Brioche Masquée.
+
+## In short
+
+Encounter+ game system for *Exploirateurs de bruines*, a French post-apocalyptic fantasy RPG by Vivien Féasson (L'Averse). It provides a character sheet, critters, items, classes, powers, rules, a theme and system settings, in French and English. It does not include the game's content. Download `edb.system` from the [latest release](https://github.com/BriocheMasquee/edb/releases/latest) and open it with Encounter+ 5.1.0 or later.
+
+
+
 ![SOTDL Game System Encounter+](images/sotdl_banner.png)
 
 # Shadow of the Demon Lord (SotDL)
@@ -15,7 +77,7 @@ _Shadow of the Demon Lord is ©2015 Schwalb Entertainment, LLC. All rights reser
 
   # Système *Exploirateurs de bruines* pour Encounter+
 
-  A VSCode extension for building [EncounterPlus](https://itunes.apple.com/us/app/encounter+/id1170693487?ls=1&mt=8) V5 modules from Markdown and JSON sources.
+  A VSCode extension for building [EncounterPlus](https://github.com/encounterplus/encounterplus) modules from Markdown and JSON sources.
 
   ![License: CC0-1.0](https://img.shields.io/badge/license-CC0--1.0-blue)
   ![Status: beta](https://img.shields.io/badge/status-beta-orange)

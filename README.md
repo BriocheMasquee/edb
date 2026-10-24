@@ -8,6 +8,8 @@
   ![Version](https://img.shields.io/badge/version-1.0.0-blue)
   ![Encounter+](https://img.shields.io/badge/Encounter%2B-%E2%89%A5%205.1.0-green)
   ![Langues](https://img.shields.io/badge/langues-FR%20%7C%20EN-lightgrey)
+
+[🇬🇧 English version](README-en.md)
 </div>
 
 > [!NOTE]

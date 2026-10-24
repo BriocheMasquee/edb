@@ -46,16 +46,15 @@ Les vitesses vont de la tortue (1) au guépard (6).
 
 **Niveau** : laissé vide, il compte pour le niveau 1. Les compétences spécifiques à d'autres niveaux apparaissent automatiquement à partir du niveau 2.
 
-**Résistances** : le bouton **Test** lance un D20, réussi si le dé est inférieur ou égal au score. Un sélecteur permet de choisir le type de lancer (normal, avec avantage ou désavantage). Une règle alternative d'avantage/désavantage est sélectionnante en éditant la fiche (onglet Caracs). Le journal affiche **1** pour une réussite et **0** pour un échec.
+**Résistances** : le bouton **Test** lance un D20, réussi si le dé est inférieur ou égal au score. Un sélecteur permet de choisir le type de lancer (normal, avec avantage ou désavantage). Une règle alternative d'avantage/désavantage est sélectionnable en éditant la fiche (onglet Caracs). Le journal affiche **1** pour une réussite et **0** pour un échec.
 
-**Points de vie** : saisissez les points de vie actuels, maximum et le dé de vie. Toucher le cadre des PV ouvre la gestion des PV d'Encounter+. 
+**Points de vie** : saisissez les points de vie actuels, maximum et le dé de vie. Toucher le cadre des PV ouvre la gestion des PV d'Encounter+.
 
-**Célébrité** : la fiche indique combien il manque de point de célébrité avant de monter de niveau. La remise à zéro au passage de niveau se fait manuellement.
+**Célébrité** : la fiche indique combien il manque de points de célébrité avant de monter de niveau. La remise à zéro au passage de niveau se fait manuellement.
 
 **Objets** : un bouton lance les dégâts d'une arme. Le menu d'usure tire le dé d'usure et permet de changer de dé (de D12 à D4). Les cases à cocher comptent les utilisations restantes des équipements et des provisions.
 
 **Encombrement** : la fiche calcule le total et signale encombré (4 à 6), surchargé (7 à 9) et écrasé (10 et plus).
-
 
 ## Crédits et licences
 

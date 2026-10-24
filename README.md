@@ -15,14 +15,16 @@
 
 ## Qu'est-ce que *Exploirateurs de bruines* ?
 
-Texte à travailler expliquant le style du jeu de rôle, son type de system (OSR, D20 etc..), son auteur, sa proposition ludique. Mettre également un lien vers le site de l'auteur.
+*Exploirateurs de bruines* est un jeu de rôle de fantasy post-apocalyptique créé par [Vivien Féasson](https://vivienfeasson.com) et publié par les éditions de L'Averse. Vous incarnez des enfants perdus dans la Ville, un labyrinthe sous une pluie qui ne s'arrête jamais, où rôdent les sirènes, des monstres qui prennent toutes les formes pour croquer les gaminots. Pour survivre, les enfants ont bâti des enclaves, et les Exploirateurs sont ceux qui osent en sortir pour aller fouiller les bruines, ces quartiers que personne n'a réussi à dompter, en quête de boustifaille et de trésors.
+
+Le jeu a un ton enfantin, drôle et inquiétant à la fois. Les règles sont légères : six Résistances notées de 1 à 20 (on réussit un test en faisant au plus son score au D20), des classes, de l'usure sur l'équipement, et un Maître ou une Maîtresse Déluge (MD) qui bricole quand les règles ne suffisent plus. Il emprunte des idées à *The Black Hack* et à *Macchiato Monsters*, et il invite à recycler de vieux « donjons » pour inventer de nouvelles bruines. On le rapproche donc volontiers du mouvement OSR (*Old School Renaissance*).
 
 ## Installation
 
 1. Téléchargez `edb.system` dans sa [dernière version](https://github.com/BriocheMasquee/edb/releases/latest).
 2. Ouvrez le fichier avec Encounter+ (Réglages, puis Import). Le système s'installe et devient le système principal.
 
-## Bien démarrer
+## Réglages du système
 
 **Initiative.** Le jeu n'a pas de système d'initiative : les Exploirateurs agissent, puis MD réagit. Un système d'initiative est néanmoins implémenté dans l'application. Choisissez la formule dans les réglages du système (groupe « Initiative »), avant le début de la partie :
 
@@ -38,18 +40,23 @@ Les vitesses vont de la tortue (1) au guépard (6).
 
 **Images.** Les réglages du système (groupe « Interface ») permettent de choisir l'image affichée dans les listes et dans le suivi de combat : icône, image ou jeton.
 
+## Utiliser la fiche personnage
+
+**Niveau** : laissé vide, il compte pour le niveau 1. Les compétences spécifiques à d'autres niveaux apparaissent automatiquement à partir du niveau 2.
+
+**Résistances** : le bouton **Test** lance un D20, réussi si le dé est inférieur ou égal au score. Un sélecteur permet de choisir le type de lancer (normal, avec avantage ou désavantage). Une règle alternative d'avantage/désavantage est sélectionnante en éditant la fiche (onglet Caracs). Le journal affiche **1** pour une réussite et **0** pour un échec.
+
+**Points de vie** : saisissez les points de vie actuels, maximum et le dé de vie. Toucher le cadre des PV ouvre la gestion des PV d'Encounter+. 
+
+**Célébrité** : la fiche indique combien il manque de point de célébrité avant de monter de niveau. La remise à zéro au passage de niveau se fait manuellement.
+
+**Objets** : un bouton lance les dégâts d'une arme. Le menu d'usure tire le dé d'usure et permet de changer de dé (de D12 à D4). Les cases à cocher comptent les utilisations restantes des équipements et des provisions.
+
+**Encombrement** : la fiche calcule le total et signale encombré (4 à 6), surchargé (7 à 9) et écrasé (10 et plus).
+
+
 ## Crédits et licences
 
 *Exploirateurs de bruines* est un jeu des éditions de L'Averse©. Concept, textes et publication : Vivien Féasson. Conception artistique, illustrations et mise en page : Willy Cabourdin.
 
 Polices : [Merriweather](fonts/OFL-Merriweather.txt), [Oswald](fonts/OFL-Oswald.txt) et [Covered By Your Grace](fonts/OFL-Covered%20By%20Your%20Grace.txt), sous licence SIL Open Font License.
-
-Icônes des types de règles : [game-icons.net](https://game-icons.net), sous licence [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).
-
-| Icône | Auteur |
-|---|---|
-| Général | [Nom de l'icône](lien) par Auteur |
-| Résistance | … |
-| Bobo | … |
-| État | … |
-| Source | … |

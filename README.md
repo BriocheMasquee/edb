@@ -42,7 +42,7 @@ Les vitesses vont de la tortue (1) au guépard (6).
 
 **Images.** Les réglages du système (groupe « Interface ») permettent de choisir l'image affichée dans les listes et dans le suivi de combat : icône, image ou jeton.
 
-## Utiliser la fiche personnage
+## Utilisation de la fiche personnage
 
 **Niveau** : laissé vide, il compte pour le niveau 1. Les compétences spécifiques à d'autres niveaux apparaissent automatiquement à partir du niveau 2.
 

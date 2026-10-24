@@ -1,0 +1,19 @@
+{
+  "attributes": [
+    {
+      "data.initiativeTarget": "#{{data.resistances.grab|default: 0}}",
+      "data.initiativeRule": "# 1",
+      "data.initiativeBase": "# 0",
+      "data.initiativeSpeed": "#{{'kiddo'|valueMap: 'SpeedRank'}}"
+    },
+    {
+      "data.fameRemaining": "# {{data.level|default: 1}} + 1 - {{data.fame|default: 0}}"
+    },
+    {
+      "data.encumbranceTotal": {
+        "attribute": "data.items.encumbrance",
+        "eval": "{{self|math: 'sum'}}"
+      }
+    }
+  ]
+}

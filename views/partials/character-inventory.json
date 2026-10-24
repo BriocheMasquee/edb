@@ -1,0 +1,184 @@
+{
+  "spacing": 10,
+  "padding": [16],
+  "views": [
+    {
+      "type": "hStack",
+      "bgColor": "#AACACD40",
+      "padding": [2, 8],
+      "views": [
+        {
+          "style": "subtitle",
+          "width": -1,
+          "value": "{{'Character.Currency'|l}}"
+        }
+      ]
+    },
+    {
+      "type": "hStack",
+      "alignment": "top",
+      "views": [
+        {
+          "type": "spacer"
+        },
+        {
+          "type": "vStack",
+          "spacing": 2,
+          "alignment": "center",
+          "views": [
+            {
+              "style": "columnLabel",
+              "value": "{{'Character.MarblesNormalShort'|l}}"
+            },
+            {
+              "style": "marbleValue",
+              "value": "{{data.marbles.normal|default: 0}}"
+            }
+          ]
+        },
+        {
+          "type": "spacer"
+        },
+        {
+          "type": "vStack",
+          "spacing": 2,
+          "alignment": "center",
+          "views": [
+            {
+              "style": "columnLabel",
+              "value": "{{'Character.MarblesRareShort'|l}}"
+            },
+            {
+              "style": "marbleValue",
+              "value": "{{data.marbles.rare|default: 0}}"
+            }
+          ]
+        },
+        {
+          "type": "spacer"
+        },
+        {
+          "type": "vStack",
+          "spacing": 2,
+          "alignment": "center",
+          "views": [
+            {
+              "style": "columnLabel",
+              "value": "{{'Character.MarblesBigShort'|l}}"
+            },
+            {
+              "style": "marbleValue",
+              "value": "{{data.marbles.big|default: 0}}"
+            }
+          ]
+        },
+        {
+          "type": "spacer"
+        }
+      ]
+    },
+    {
+      "type": "spacer",
+      "height": 6
+    },
+    {
+      "type": "hStack",
+      "bgColor": "#AACACD40",
+      "padding": [2, 8],
+      "views": [
+        {
+          "style": "subtitle",
+          "width": -1,
+          "value": "{{'Character.GroupWeaponsArmor'|l}}"
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "attribute": "data.items",
+      "views": [
+        {
+          "type": "partial",
+          "value": "character-inventory-item",
+          "visibleIf": "{% if type == 'weapon' or type == 'armor' %}true{% endif %}"
+        }
+      ]
+    },
+    {
+      "type": "spacer",
+      "height": 6
+    },
+    {
+      "type": "hStack",
+      "alignment": "center",
+      "bgColor": "#AACACD40",
+      "padding": [2, 8],
+      "views": [
+        {
+          "style": "subtitle",
+          "value": "{{'Character.GroupGear'|l}}"
+        },
+        {
+          "type": "spacer"
+        },
+        {
+          "style": "columnLabelEnd",
+          "width": 170,
+          "value": "{{'Power.Used'|l}}"
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "attribute": "data.items",
+      "views": [
+        {
+          "type": "partial",
+          "value": "character-inventory-item",
+          "visibleIf": "{% if type == 'gear' or type == 'treasure' %}true{% endif %}"
+        }
+      ]
+    },
+    {
+      "type": "spacer",
+      "height": 6
+    },
+    {
+      "type": "hStack",
+      "alignment": "center",
+      "bgColor": "#AACACD40",
+      "padding": [2, 8],
+      "views": [
+        {
+          "style": "subtitle",
+          "value": "{{'Character.GroupProvisions'|l}}"
+        },
+        {
+          "type": "spacer"
+        },
+        {
+          "style": "columnLabelEnd",
+          "width": 170,
+          "value": "{{'Power.Used'|l}}"
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "attribute": "data.items",
+      "views": [
+        {
+          "type": "partial",
+          "value": "character-inventory-item",
+          "visibleIf": "{% if type == 'food' %}true{% endif %}"
+        }
+      ]
+    },
+    {
+      "type": "divider",
+      "style": "rectangle",
+      "height": 2,
+      "padding": [0]
+    }
+  ]
+}

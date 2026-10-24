@@ -1,0 +1,151 @@
+{
+  "spacing": 10,
+  "padding": [16],
+  "views": [
+    {
+      "type": "vStack",
+      "spacing": 4,
+      "views": [
+        {
+          "type": "hStack",
+          "bgColor": "#284858F2",
+          "padding": [2, 6],
+          "views": [
+            {
+              "style": "bandTitle",
+              "width": -1,
+              "value": "{{name}}"
+            }
+          ]
+        },
+        {
+          "style": "subtitle",
+          "value": "{{data.type | map: 'CritterType'}}"
+        }
+      ]
+    },
+    {
+      "type": "vStack",
+      "spacing": 16,
+      "views": [
+        {
+          "type": "hStack",
+          "spacing": 12,
+          "alignment": "top",
+          "bgColor": "#AACACD40",
+          "padding": [8, 10],
+          "views": [
+            {
+              "type": "vStack",
+              "spacing": 2,
+              "width": -1,
+              "views": [
+                {
+                  "type": "text",
+                  "style": "stats",
+                  "value": "{% if data.number %}**{{'Critter.Number'|l}}{{'Common.Colon'|l}}** {{data.number}}{% endif %}"
+                },
+                {
+                  "type": "text",
+                  "style": "stats",
+                  "value": "{% if data.level != nil %}**{{'Common.Level'|l}}{{'Common.Colon'|l}}** {{data.level}}{% endif %}"
+                },
+                {
+                  "type": "text",
+                  "style": "stats",
+                  "value": "{% if data.movement.speed %}**{{'Common.SpeedLike'|l}}{{'Common.Colon'|l}}** {% include \"movement.md\" data.movement %}{% endif %}"
+                }
+              ]
+            },
+            {
+              "type": "vStack",
+              "spacing": 2,
+              "width": -1,
+              "views": [
+                {
+                  "type": "text",
+                  "style": "stats",
+                  "value": "{% if data.hp %}**{{'Common.HitPoints'|l}}{{'Common.Colon'|l}}** {{data.hp}}{% endif %}"
+                },
+                {
+                  "type": "text",
+                  "style": "stats",
+                  "value": "{% if data.protection %}**{{'Common.Protection'|l}}{{'Common.Colon'|l}}** {{data.protection}}{% endif %}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": "{% if descr %}{{descr}} ▪{% endif %}"
+        }
+      ]
+    },
+    {
+      "type": "spacer",
+      "height": 6,
+      "visibleIf": "{% if data.abilities %}true{% endif %}"
+    },
+    {
+      "type": "vStack",
+      "spacing": 6,
+      "views": [
+        {
+          "type": "hStack",
+          "bgColor": "#AACACD40",
+          "padding": [2, 8],
+          "views": [
+            {
+              "style": "subtitle",
+              "width": -1,
+              "value": "{{'Critter.Abilities'|l}}"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "spacing": 6,
+          "attribute": "data.abilities",
+          "views": [
+            {
+              "type": "hStack",
+              "spacing": 4,
+              "alignment": "top",
+              "views": [
+                {
+                  "type": "text",
+                  "style": "bullet",
+                  "width": 14,
+                  "value": "▪"
+                },
+                {
+                  "type": "text",
+                  "width": -1,
+                  "value": "**{{name}}**{{'Common.Colon'|l}} {{text}}"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "visibleIf": "{% if data.abilities %}true{% endif %}"
+    },
+    {
+      "type": "image",
+      "value": "{{image}}",
+      "link": "{{image}}"
+    },
+    {
+      "type": "divider",
+      "style": "rectangle",
+      "height": 2,
+      "padding": [0]
+    },
+    {
+      "type": "text",
+      "style": "source",
+      "value": "{{sourceFormatted}}"
+    }
+  ]
+}

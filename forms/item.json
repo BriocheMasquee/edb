@@ -1,0 +1,56 @@
+{
+  "title": "Entity.Item",
+  "sections": [
+    {
+      "type": "group",
+      "fields": [
+        {
+          "title": "Item.Type",
+          "type": "picker",
+          "attribute": "data.type",
+          "attributeType": "ItemType"
+        },
+        {
+          "title": "Item.Price",
+          "type": "number",
+          "attribute": "data.price"
+        },
+        {
+          "title": "Item.Encumbrance",
+          "type": "number",
+          "attribute": "data.encumbrance"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "fields": [
+        {
+          "title": "Common.Damages",
+          "type": "text",
+          "visibleIf": "data.type == 'weapon'",
+          "attribute": "data.damage"
+        },
+        {
+          "title": "Common.Protection",
+          "type": "number",
+          "visibleIf": "data.type == 'armor'",
+          "attribute": "data.protection"
+        },
+        {
+          "title": "Common.UsageDie",
+          "type": "picker",
+          "visibleIf": "data.type == 'weapon' or data.type == 'armor' or data.type == 'gear' or data.type == 'treasure'",
+          "attribute": "data.usageDie",
+          "attributeType": "DieType"
+        },
+        {
+          "title": "Item.Quantity",
+          "type": "number",
+          "visibleIf": "data.type == 'gear' or data.type == 'food'",
+          "attribute": "data.quantity"
+        }
+      ]
+    }
+  ]
+}

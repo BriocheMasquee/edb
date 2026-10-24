@@ -1,0 +1,85 @@
+{
+  "sections": [
+    {
+      "type": "group",
+      "fields": [
+        {
+          "placeholder": "Common.Name",
+          "attribute": "name"
+        }
+      ]
+    },
+    {
+      "title": "Common.Description",
+      "type": "group",
+      "fields": [
+        {
+          "type": "textArea",
+          "attribute": "descr"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "fields": [
+        {
+          "title": "Item.Type",
+          "type": "picker",
+          "attribute": "type",
+          "attributeType": "ItemType"
+        },
+        {
+          "title": "Item.Price",
+          "type": "number",
+          "attribute": "price"
+        },
+        {
+          "title": "Item.Encumbrance",
+          "type": "number",
+          "attribute": "encumbrance"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "fields": [
+        {
+          "title": "Common.Damages",
+          "type": "text",
+          "visibleIf": "type == 'weapon'",
+          "attribute": "damage"
+        },
+        {
+          "title": "Common.Protection",
+          "type": "number",
+          "visibleIf": "type == 'armor'",
+          "attribute": "protection"
+        },
+        {
+          "title": "Common.UsageDie",
+          "type": "picker",
+          "visibleIf": "type == 'weapon' or type == 'armor' or type == 'gear' or type == 'treasure'",
+          "attribute": "usageDie",
+          "attributeType": "DieType"
+        },
+        {
+          "title": "Item.Quantity",
+          "type": "number",
+          "visibleIf": "type == 'gear' or type == 'food'",
+          "attribute": "quantity"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "fields": [
+        {
+          "title": "Common.Reference",
+          "type": "reference",
+          "attribute": "reference",
+          "attributeType": "Item"
+        }
+      ]
+    }
+  ]
+}

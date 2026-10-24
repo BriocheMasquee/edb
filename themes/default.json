@@ -1,0 +1,224 @@
+{
+  "tintColor": "#284858",
+  "primaryColor": "#488898",
+  "textColor": "#1c1414",
+  "dividerColor": "#AACACD",
+  "bgColor": "#f8f8f8",
+  "bgImage": "/images/paper.png",
+  "checkboxStyles": {
+    "default": {
+      "tintColor": "#488898",
+      "icon": "square"
+    },
+    "checked": {
+      "primaryColor": "#488898",
+      "tintColor": "#284858",
+      "icon": "square.inset.filled"
+    }
+  },
+  "dividerStyles": {
+    "default": {
+      "shape": "rectangle",
+      "color": "#488898"
+    },
+    "rectangle": {
+      "shape": "rectangle",
+      "color": "#488898"
+    }
+  },
+  "tableStyles": {
+    "default": {
+      "head": {
+        "font": "Oswald-SemiBold",
+        "color": "#ffffff",
+        "bgColor": "#284858F2",
+        "case": "uppercase",
+        "size": 14
+      },
+      "body": {
+        "font": "Oswald-Regular",
+        "size": 14
+      },
+      "rowStyle": "odd",
+      "rowColor": "#AACACD40"
+    }
+  },
+  "buttonStyles": {
+    "default": {
+      "color": "#385868",
+      "bgColor": "#00000000",
+      "cornerRadius": 0,
+      "body": {
+        "font": "Oswald-SemiBold",
+        "color": "#385868",
+        "case": "uppercase",
+        "size": 12
+      }
+    },
+    "rollButton": {
+      "color": "#488898",
+      "bgColor": "#00000000",
+      "borderColor": "#488898",
+      "borderWidth": 1,
+      "cornerRadius": 4,
+      "body": {
+        "font": "Oswald-SemiBold",
+        "color": "#488898",
+        "case": "uppercase",
+        "alignment": "center",
+        "size": 10
+      }
+    },
+    "wearButton": {
+      "color": "#488898",
+      "bgColor": "#00000000",
+      "cornerRadius": 0,
+      "padding": [0, 0],
+      "body": {
+        "font": "Oswald-SemiBold",
+        "color": "#488898",
+        "case": "uppercase",
+        "alignment": "center",
+        "size": 10
+      }
+    },
+    "prominent": {
+      "color": "#ffffff",
+      "bgColor": "#284858",
+      "cornerRadius": 0,
+      "body": {
+        "font": "Oswald-SemiBold",
+        "color": "#ffffff",
+        "case": "uppercase",
+        "size": 12
+      }
+    }
+  },
+  "textStyles": {
+    "body": {
+      "font": "Merriweather24pt-Regular",
+      "size": 13
+    },
+    "title": {
+      "font": "CoveredByYourGrace",
+      "color": "#284858",
+      "size": 25
+    },
+    "bandTitle": {
+      "font": "CoveredByYourGrace",
+      "color": "#ffffff",
+      "size": 25
+    },
+    "subtitle": {
+      "font": "Oswald-SemiBold",
+      "color": "#385868",
+      "case": "uppercase",
+      "size": 14
+    },
+    "source": {
+      "font": "Oswald-Light",
+      "color": "#385868",
+      "size": 12
+    },
+    "stats": {
+      "font": "Oswald-Regular",
+      "size": 14
+    },
+    "bullet": {
+      "font": "Merriweather24pt-Regular",
+      "color": "#488898",
+      "size": 13
+    },
+    "hpLabel": {
+      "font": "Oswald-SemiBold",
+      "color": "#284858",
+      "alignment": "center",
+      "size": 14
+    },
+    "hpValue": {
+      "font": "Oswald-SemiBold",
+      "color": "#488898",
+      "alignment": "center",
+      "size": 16
+    },
+    "columnLabel": {
+      "font": "Merriweather24pt-Italic",
+      "color": "#6b7b83",
+      "alignment": "center",
+      "size": 11
+    },
+    "columnLabelEnd": {
+      "font": "Merriweather24pt-Italic",
+      "color": "#6b7b83",
+      "alignment": "trailing",
+      "size": 11
+    },
+    "headerInfo": {
+      "font": "Merriweather24pt-Italic",
+      "size": 11
+    },
+    "headerWarn": {
+      "font": "Merriweather24pt-Italic",
+      "color": "#B3261E",
+      "size": 11
+    },
+    "columnLabelStart": {
+      "font": "Merriweather24pt-Italic",
+      "color": "#6b7b83",
+      "size": 11
+    },
+    "hpDie": {
+      "font": "Merriweather24pt-Italic",
+      "color": "#6b7b83",
+      "alignment": "center",
+      "size": 11
+    },
+    "marbleValue": {
+      "font": "Merriweather24pt-Bold",
+      "alignment": "center",
+      "size": 14
+    },
+    "rollBoxText": {
+      "font": "Oswald-SemiBold",
+      "color": "#488898",
+      "alignment": "center",
+      "case": "uppercase",
+      "size": 10
+    },
+    "skillTitle": {
+      "font": "Merriweather24pt-Bold",
+      "color": "#1c1414",
+      "size": 13
+    },
+    "resName": {
+      "font": "Merriweather24pt-Regular",
+      "size": 13
+    },
+    "resValue": {
+      "font": "Merriweather24pt-Bold",
+      "alignment": "center",
+      "size": 13
+    },
+    "heading1": {
+      "font": "Oswald-SemiBold",
+      "color": "#385868",
+      "bgColor": "#AACACD40",
+      "padding": [2, 8],
+      "case": "uppercase",
+      "size": 14
+    },
+    "heading2": {
+      "font": "Oswald-SemiBold",
+      "color": "#385868",
+      "case": "uppercase",
+      "size": 13
+    },
+    "heading3": {
+      "font": "Oswald-SemiBold",
+      "color": "#385868",
+      "case": "uppercase",
+      "size": 12,
+      "divider": true
+    }
+  }
+}

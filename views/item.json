@@ -1,0 +1,102 @@
+{
+  "spacing": 10,
+  "padding": [16],
+  "views": [
+    {
+      "type": "vStack",
+      "spacing": 4,
+      "views": [
+        {
+          "type": "hStack",
+          "bgColor": "#284858F2",
+          "padding": [2, 6],
+          "views": [
+            {
+              "style": "bandTitle",
+              "width": -1,
+              "value": "{{name}}"
+            }
+          ]
+        },
+        {
+          "style": "subtitle",
+          "value": "{{data.type | map: 'ItemType'}}"
+        }
+      ]
+    },
+    {
+      "type": "vStack",
+      "spacing": 16,
+      "views": [
+        {
+          "type": "hStack",
+          "spacing": 12,
+          "alignment": "top",
+          "bgColor": "#AACACD40",
+          "padding": [8, 10],
+          "views": [
+            {
+              "type": "vStack",
+              "spacing": 2,
+              "width": -1,
+              "views": [
+                {
+                  "type": "text",
+                  "style": "stats",
+                  "value": "{% if data.price != nil %}**{{'Item.Price'|l}}{{'Common.Colon'|l}}** {{data.price}}{% endif %}"
+                },
+                {
+                  "type": "text",
+                  "style": "stats",
+                  "value": "{% if data.encumbrance != nil %}**{{'Item.Encumbrance'|l}}{{'Common.Colon'|l}}** {{data.encumbrance}}{% endif %}"
+                }
+              ]
+            },
+            {
+              "type": "vStack",
+              "spacing": 2,
+              "width": -1,
+              "views": [
+                {
+                  "type": "text",
+                  "style": "stats",
+                  "value": "{% if data.damage %}**{{'Common.Damages'|l}}{{'Common.Colon'|l}}** {{data.damage}}{% endif %}"
+                },
+                {
+                  "type": "text",
+                  "style": "stats",
+                  "value": "{% if data.protection != nil %}**{{'Common.Protection'|l}}{{'Common.Colon'|l}}** {{data.protection}}{% endif %}"
+                },
+                {
+                  "type": "text",
+                  "style": "stats",
+                  "value": "{% if data.usageDie %}**{{'Common.UsageDie'|l}}{{'Common.Colon'|l}}** {{data.usageDie | map: 'DieType'}}{% endif %}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": "{% if descr %}{{descr}} ▪{% endif %}"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "value": "{{image}}",
+      "link": "{{image}}"
+    },
+    {
+      "type": "divider",
+      "style": "rectangle",
+      "height": 2,
+      "padding": [0]
+    },
+    {
+      "type": "text",
+      "style": "source",
+      "value": "{{sourceFormatted}}"
+    }
+  ]
+}

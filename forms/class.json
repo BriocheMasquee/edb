@@ -1,0 +1,58 @@
+{
+  "title": "Entity.Class",
+  "sections": [
+    {
+      "type": "group",
+      "fields": [
+        {
+          "title": "Common.HitPoints",
+          "type": "number",
+          "attribute": "data.hp"
+        },
+        {
+          "title": "Common.HitDie",
+          "type": "text",
+          "attribute": "data.hitDie"
+        }
+      ]
+    },
+    {
+      "title": "Class.ResistanceBonusLevel1",
+      "type": "group",
+      "fields": [
+        {
+          "type": "textArea",
+          "attribute": "data.resistanceBonusLevel1"
+        }
+      ]
+    },
+    {
+      "title": "Class.ResistanceBonusLevelUp",
+      "type": "group",
+      "fields": [
+        {
+          "type": "textArea",
+          "attribute": "data.resistanceBonusLevelUp"
+        }
+      ]
+    },
+    {
+      "title": "Class.BonusLevel1",
+      "type": "list",
+      "attribute": "data.bonusLevel1",
+      "form": {
+        "title": "Class.BonusLevel1",
+        "partial": "generic-feature"
+      }
+    },
+    {
+      "title": "Class.BonusLevelUp",
+      "type": "list",
+      "attribute": "data.bonusLevelUp",
+      "form": {
+        "title": "Class.BonusLevelUp",
+        "partial": "generic-feature"
+      }
+    }
+  ]
+}

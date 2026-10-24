@@ -1,0 +1,69 @@
+{
+  "AdvantageRule": {
+    "d20": "AdvantageRule.D20",
+    "d4": "AdvantageRule.D4"
+  },
+  "CombatImageDisplayType": {
+    "image": "ImageType.Image",
+    "token": "ImageType.Token"
+  },
+  "CritterType": {
+    "aminal": "CritterType.Aminal",
+    "construct": "CritterType.Construct",
+    "copycat": "CritterType.Copycat",
+    "creaker": "CritterType.Creaker",
+    "siren": "CritterType.Siren",
+    "spookter": "CritterType.Spookter"
+  },
+  "DieType": {
+    "d12": "DieType.D12",
+    "d10": "DieType.D10",
+    "d8": "DieType.D8",
+    "d6": "DieType.D6",
+    "d4": "DieType.D4"
+  },
+  "InitiativeType": {
+    "@entity.data.initiativeRule": "InitiativeType.Rule",
+    "(1d20cs<=@entity.data.initiativeTarget)*7+@entity.data.initiativeBase": "InitiativeType.Test",
+    "@entity.data.initiativeSpeed": "InitiativeType.Speed"
+  },
+  "ItemType": {
+    "armor": "ItemType.Armor",
+    "food": "ItemType.Food",
+    "gear": "ItemType.Gear",
+    "treasure": "ItemType.Treasure",
+    "weapon": "ItemType.Weapon"
+  },
+  "ListImageDisplayType": {
+    "icon": "ImageType.Icon",
+    "image": "ImageType.Image",
+    "token": "ImageType.Token"
+  },
+  "PowerType": {
+    "grossness": "PowerType.Grossness",
+    "tale": "PowerType.Tale"
+  },
+  "RuleType": {
+    "booBoo": "RuleType.BooBoo",
+    "condition": "RuleType.Condition",
+    "general": "RuleType.General",
+    "resistance": "RuleType.Resistance",
+    "source": "RuleType.Source"
+  },
+  "SpeedRank": {
+    "turtle": 1,
+    "kiddo": 2,
+    "adult": 3,
+    "dog": 4,
+    "horse": 5,
+    "cheetah": 6
+  },
+  "SpeedType": {
+    "adult": "SpeedType.Adult",
+    "cheetah": "SpeedType.Cheetah",
+    "dog": "SpeedType.Dog",
+    "horse": "SpeedType.Horse",
+    "kiddo": "SpeedType.Kiddo",
+    "turtle": "SpeedType.Turtle"
+  }
+}

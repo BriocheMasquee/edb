@@ -1,0 +1,82 @@
+{
+  "sections": [
+    {
+      "type": "group",
+      "fields": [
+        {
+          "placeholder": "Common.Name",
+          "attribute": "name"
+        }
+      ]
+    },
+    {
+      "title": "Common.Description",
+      "type": "group",
+      "fields": [
+        {
+          "type": "textArea",
+          "attribute": "descr"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "fields": [
+        {
+          "title": "Character.ClassHp",
+          "type": "number",
+          "attribute": "hp"
+        }
+      ]
+    },
+    {
+      "title": "Class.ResistanceBonusLevel1",
+      "type": "group",
+      "fields": [
+        {
+          "type": "textArea",
+          "attribute": "resistanceBonusLevel1"
+        }
+      ]
+    },
+    {
+      "title": "Class.ResistanceBonusLevelUp",
+      "type": "group",
+      "fields": [
+        {
+          "type": "textArea",
+          "attribute": "resistanceBonusLevelUp"
+        }
+      ]
+    },
+    {
+      "title": "Class.BonusLevel1",
+      "type": "list",
+      "attribute": "bonusLevel1",
+      "form": {
+        "title": "Class.BonusLevel1",
+        "partial": "generic-feature"
+      }
+    },
+    {
+      "title": "Class.BonusLevelUp",
+      "type": "list",
+      "attribute": "bonusLevelUp",
+      "form": {
+        "title": "Class.BonusLevelUp",
+        "partial": "generic-feature"
+      }
+    },
+    {
+      "type": "group",
+      "fields": [
+        {
+          "title": "Common.Reference",
+          "type": "reference",
+          "attribute": "reference",
+          "attributeType": "Class"
+        }
+      ]
+    }
+  ]
+}

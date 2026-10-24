@@ -1,0 +1,132 @@
+{
+  "Class": {
+    "params": [
+      {
+        "attribute": "sources.name",
+        "title": "Common.Source",
+        "dynamic": true
+      }
+    ]
+  },
+  "Critter": {
+    "params": [
+      {
+        "attribute": "data.type",
+        "attributeType": "CritterType",
+        "title": "Common.Type"
+      },
+      {
+        "attribute": "sources.name",
+        "title": "Common.Source",
+        "dynamic": true
+      }
+    ],
+    "group": [
+      {
+        "attribute": "data.type",
+        "attributeType": "CritterType",
+        "title": "Common.Type"
+      },
+      {
+        "attribute": "data.level",
+        "title": "Common.Level",
+        "text": "{{'Common.Level'|l}} {{value}}"
+      },
+      {
+        "attribute": "name",
+        "title": "Common.Name"
+      }
+    ],
+    "sort": [
+      {
+        "attribute": "name",
+        "title": "Common.Name"
+      },
+      {
+        "attribute": "data.level",
+        "title": "Common.Level",
+        "text": "{{'Common.Level'|l}} {{value}}"
+      },
+      {
+        "attribute": "data.movement.speed",
+        "attributeType": "SpeedType",
+        "title": "Common.Speed"
+      }
+    ]
+  },
+  "Item": {
+    "params": [
+      {
+        "attribute": "data.type",
+        "attributeType": "ItemType",
+        "title": "Common.Type"
+      },
+      {
+        "attribute": "sources.name",
+        "title": "Common.Source",
+        "dynamic": true
+      }
+    ],
+    "group": [
+      {
+        "attribute": "data.type",
+        "attributeType": "ItemType",
+        "title": "Common.Type"
+      },
+      {
+        "attribute": "name",
+        "title": "Common.Name"
+      }
+    ]
+  },
+  "Power": {
+    "params": [
+      {
+        "attribute": "data.type",
+        "attributeType": "PowerType",
+        "title": "Common.Type"
+      },
+      {
+        "attribute": "sources.name",
+        "title": "Common.Source",
+        "dynamic": true
+      }
+    ],
+    "group": [
+      {
+        "attribute": "data.type",
+        "attributeType": "PowerType",
+        "title": "Common.Type"
+      },
+      {
+        "attribute": "name",
+        "title": "Common.Name"
+      }
+    ]
+  },
+  "Rule": {
+    "params": [
+      {
+        "attribute": "type",
+        "attributeType": "RuleType",
+        "title": "Common.Type"
+      },
+      {
+        "attribute": "sources.name",
+        "title": "Common.Source",
+        "dynamic": true
+      }
+    ],
+    "group": [
+      {
+        "attribute": "type",
+        "attributeType": "RuleType",
+        "title": "Common.Type"
+      },
+      {
+        "attribute": "name",
+        "title": "Common.Name"
+      }
+    ]
+  }
+}

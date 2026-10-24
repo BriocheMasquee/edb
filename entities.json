@@ -1,0 +1,55 @@
+[
+  {
+    "name": "Character",
+    "label": "character",
+    "collection": {
+      "label": "characters"
+    },
+    "loadable": true,
+    "standalone": true
+  },
+  {
+    "name": "Critter",
+    "label": "critter",
+    "collection": {
+      "label": "critters"
+    },
+    "loadable": true
+  },
+  {
+    "name": "Item",
+    "label": "item",
+    "collection": {
+      "label": "items"
+    }
+  },
+  {
+    "name": "Class",
+    "label": "class",
+    "collection": {
+      "label": "classes"
+    }
+  },
+  {
+    "name": "Power",
+    "label": "power",
+    "collection": {
+      "label": "powers"
+    }
+  },
+  {
+    "name": "Table",
+    "label": "table",
+    "collection": {
+      "label": "tables"
+    }
+  },
+  {
+    "name": "Rule",
+    "label": "rule",
+    "collection": {
+      "label": "rules"
+    },
+    "dynamic": true
+  }
+]

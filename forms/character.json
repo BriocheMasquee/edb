@@ -1,0 +1,225 @@
+{
+  "title": "Entity.Character",
+  "tabs": [
+    {
+      "title": "Character.TabIdentity",
+      "icon": "person",
+      "sections": [
+        {
+          "type": "group",
+          "fields": [
+            {
+              "title": "Character.Age",
+              "type": "number",
+              "attribute": "data.age"
+            },
+            {
+              "title": "Common.Level",
+              "type": "number",
+              "placeholder": "1",
+              "attribute": "data.level"
+            },
+            {
+              "title": "Character.Fame",
+              "type": "number",
+              "placeholder": "0",
+              "attribute": "data.fame"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "fields": [
+            {
+              "type": "form",
+              "title": "{% if data.class.name %}{{data.class.name}}{% else %}{{'Entity.Class'|l}}{% endif %}",
+              "attribute": "data.class",
+              "attributeType": "Class",
+              "custom": {
+                "map": {
+                  "hp": "data.hp.maximum",
+                  "resistanceBonusLevel1": "data.resistanceBonusLevel1",
+                  "resistanceBonusLevelUp": "data.resistanceBonusLevelUp",
+                  "bonusLevel1": "data.bonusLevel1",
+                  "bonusLevelUp": "data.bonusLevelUp"
+                }
+              },
+              "form": {
+                "title": "Entity.Class",
+                "partial": "character-class"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "fields": [
+            {
+              "title": "Character.Nickname",
+              "type": "text",
+              "attribute": "data.nickname"
+            },
+            {
+              "title": "Character.Quirk",
+              "type": "textArea",
+              "attribute": "data.quirk"
+            },
+            {
+              "title": "Character.Motivations",
+              "type": "textArea",
+              "attribute": "data.motivations"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Character.TabStats",
+      "icon": "chart.bar",
+      "sections": [
+        {
+          "title": "Character.Resistances",
+          "type": "group",
+          "fields": [
+            {
+              "title": "Resistance.Grab",
+              "type": "number",
+              "attribute": "data.resistances.grab"
+            },
+            {
+              "title": "Resistance.Fear",
+              "type": "number",
+              "attribute": "data.resistances.fear"
+            },
+            {
+              "title": "Resistance.Hurt",
+              "type": "number",
+              "attribute": "data.resistances.hurt"
+            },
+            {
+              "title": "Resistance.Fall",
+              "type": "number",
+              "attribute": "data.resistances.fall"
+            },
+            {
+              "title": "Resistance.Craving",
+              "type": "number",
+              "attribute": "data.resistances.craving"
+            },
+            {
+              "title": "Resistance.Stealth",
+              "type": "number",
+              "attribute": "data.resistances.stealth"
+            }
+          ]
+        },
+        {
+          "title": "Common.HitPoints",
+          "type": "group",
+          "fields": [
+            {
+              "title": "Character.HpCurrent",
+              "type": "number",
+              "attribute": "data.hp.current"
+            },
+            {
+              "title": "Character.HpMax",
+              "type": "number",
+              "attribute": "data.hp.maximum"
+            },
+            {
+              "title": "Common.HitDie",
+              "type": "picker",
+              "attribute": "data.hp.die",
+              "attributeType": "DieType"
+            }
+          ]
+        },
+        {
+          "title": "Character.OptionalRules",
+          "type": "group",
+          "fields": [
+            {
+              "title": "Character.AdvantageRule",
+              "type": "picker",
+              "placeholder": "AdvantageRule.D20",
+              "attribute": "data.advantageRule",
+              "attributeType": "AdvantageRule"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Character.TabPowers",
+      "icon": "sparkles",
+      "sections": [
+        {
+          "title": "Entity.Power.many",
+          "type": "list",
+          "attribute": "data.powers",
+          "attributeType": "Power",
+          "custom": {
+            "map": {
+              "type": "data.type"
+            },
+            "itemDetail": "{{type|map: 'PowerType'}}"
+          },
+          "form": {
+            "title": "Entity.Power",
+            "partial": "character-power"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Character.TabInventory",
+      "icon": "bag",
+      "sections": [
+        {
+          "title": "Character.Marbles",
+          "type": "group",
+          "fields": [
+            {
+              "title": "Character.MarblesNormal",
+              "type": "number",
+              "attribute": "data.marbles.normal"
+            },
+            {
+              "title": "Character.MarblesRare",
+              "type": "number",
+              "attribute": "data.marbles.rare"
+            },
+            {
+              "title": "Character.MarblesBig",
+              "type": "number",
+              "attribute": "data.marbles.big"
+            }
+          ]
+        },
+        {
+          "title": "Character.Items",
+          "type": "list",
+          "attribute": "data.items",
+          "attributeType": "Item",
+          "custom": {
+            "map": {
+              "type": "data.type",
+              "price": "data.price",
+              "encumbrance": "data.encumbrance",
+              "damage": "data.damage",
+              "protection": "data.protection",
+              "usageDie": "data.usageDie",
+              "quantity": "data.quantity"
+            },
+            "itemDetail": "{{type|map: 'ItemType'}}"
+          },
+          "form": {
+            "title": "Entity.Item",
+            "partial": "character-item"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "attributes": [
+    {
+      "data.initiativeTarget": "# 0",
+      "data.initiativeRule": "# 0",
+      "data.initiativeSpeed": "#{% if data.movement.speed %}{{data.movement.speed|valueMap: 'SpeedRank'}}{% else %}0{% endif %}"
+    },
+    {
+      "data.initiativeBase": "# {{data.initiativeSpeed}}"
+    }
+  ]
+}

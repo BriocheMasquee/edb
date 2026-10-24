@@ -1,0 +1,222 @@
+{
+  "spacing": 10,
+  "padding": [16],
+  "views": [
+    {
+      "type": "hStack",
+      "bgColor": "#284858F2",
+      "padding": [2, 6],
+      "views": [
+        {
+          "style": "bandTitle",
+          "width": -1,
+          "value": "{{name}}"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "{% if descr %}{{descr}} ▪{% endif %}"
+    },
+    {
+      "type": "spacer",
+      "height": 6,
+      "visibleIf": "{% if data.hp != nil or data.resistanceBonusLevel1 or data.bonusLevel1 %}true{% endif %}"
+    },
+    {
+      "type": "vStack",
+      "spacing": 6,
+      "views": [
+        {
+          "type": "hStack",
+          "bgColor": "#AACACD40",
+          "padding": [2, 8],
+          "views": [
+            {
+              "style": "subtitle",
+              "width": -1,
+              "value": "{{'Class.BonusLevel1'|l}}"
+            }
+          ]
+        },
+        {
+          "type": "vStack",
+          "spacing": 6,
+          "views": [
+            {
+              "type": "hStack",
+              "spacing": 4,
+              "alignment": "top",
+              "views": [
+                {
+                  "type": "text",
+                  "style": "bullet",
+                  "width": 14,
+                  "value": "{% if data.hp != nil %}▪{% endif %}"
+                },
+                {
+                  "type": "text",
+                  "width": -1,
+                  "value": "{% if data.hp != nil %}**{{'Common.HitPoints'|l}}{{'Common.Colon'|l}}** {{data.hp}}{% endif %}"
+                }
+              ]
+            },
+            {
+              "type": "hStack",
+              "spacing": 4,
+              "alignment": "top",
+              "visibleIf": "{% if data.resistanceBonusLevel1 %}true{% endif %}",
+              "views": [
+                {
+                  "type": "text",
+                  "style": "bullet",
+                  "width": 14,
+                  "value": "▪"
+                },
+                {
+                  "type": "text",
+                  "width": -1,
+                  "value": "**{{'Class.ResistanceBonus'|l}}{{'Common.Colon'|l}}** {{data.resistanceBonusLevel1}}"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "spacing": 6,
+              "attribute": "data.bonusLevel1",
+              "views": [
+                {
+                  "type": "hStack",
+                  "spacing": 4,
+                  "alignment": "top",
+                  "views": [
+                    {
+                      "type": "text",
+                      "style": "bullet",
+                      "width": 14,
+                      "value": "▪"
+                    },
+                    {
+                      "type": "text",
+                      "width": -1,
+                      "value": "**{{name}}**{{'Common.Colon'|l}} {{text}}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "visibleIf": "{% if data.hp != nil or data.resistanceBonusLevel1 or data.bonusLevel1 %}true{% endif %}"
+    },
+    {
+      "type": "spacer",
+      "height": 6,
+      "visibleIf": "{% if data.hitDie or data.resistanceBonusLevelUp or data.bonusLevelUp %}true{% endif %}"
+    },
+    {
+      "type": "vStack",
+      "spacing": 6,
+      "views": [
+        {
+          "type": "hStack",
+          "bgColor": "#AACACD40",
+          "padding": [2, 8],
+          "views": [
+            {
+              "style": "subtitle",
+              "width": -1,
+              "value": "{{'Class.BonusLevelUp'|l}}"
+            }
+          ]
+        },
+        {
+          "type": "vStack",
+          "spacing": 6,
+          "views": [
+            {
+              "type": "hStack",
+              "spacing": 4,
+              "alignment": "top",
+              "views": [
+                {
+                  "type": "text",
+                  "style": "bullet",
+                  "width": 14,
+                  "value": "{% if data.hitDie %}▪{% endif %}"
+                },
+                {
+                  "type": "text",
+                  "width": -1,
+                  "value": "{% if data.hitDie %}**{{'Common.HitPoints'|l}}{{'Common.Colon'|l}}** {{data.hitDie}}{% endif %}"
+                }
+              ]
+            },
+            {
+              "type": "hStack",
+              "spacing": 4,
+              "alignment": "top",
+              "visibleIf": "{% if data.resistanceBonusLevelUp %}true{% endif %}",
+              "views": [
+                {
+                  "type": "text",
+                  "style": "bullet",
+                  "width": 14,
+                  "value": "▪"
+                },
+                {
+                  "type": "text",
+                  "width": -1,
+                  "value": "**{{'Class.ResistanceBonus'|l}}{{'Common.Colon'|l}}** {{data.resistanceBonusLevelUp}}"
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "spacing": 6,
+              "attribute": "data.bonusLevelUp",
+              "views": [
+                {
+                  "type": "hStack",
+                  "spacing": 4,
+                  "alignment": "top",
+                  "views": [
+                    {
+                      "type": "text",
+                      "style": "bullet",
+                      "width": 14,
+                      "value": "▪"
+                    },
+                    {
+                      "type": "text",
+                      "width": -1,
+                      "value": "**{{name}}**{{'Common.Colon'|l}} {{text}}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "visibleIf": "{% if data.hitDie or data.resistanceBonusLevelUp or data.bonusLevelUp %}true{% endif %}"
+    },
+    {
+      "type": "image",
+      "value": "{{image}}",
+      "link": "{{image}}"
+    },
+    {
+      "type": "divider",
+      "style": "rectangle",
+      "height": 2,
+      "padding": [0]
+    },
+    {
+      "type": "text",
+      "style": "source",
+      "value": "{{sourceFormatted}}"
+    }
+  ]
+}

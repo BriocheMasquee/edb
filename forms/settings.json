@@ -1,0 +1,65 @@
+{
+  "title": "Settings",
+  "sections": [
+    {
+      "type": "group",
+      "title": "Common.Locale",
+      "fields": [
+        {
+          "type": "picker",
+          "title": "Common.Language",
+          "placeholder": "Common.Default",
+          "attribute": "language",
+          "attributeType": "SystemLanguage"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "Settings.Initiative",
+      "fields": [
+        {
+          "type": "picker",
+          "title": "Settings.InitiativeType",
+          "placeholder": "InitiativeType.Rule",
+          "attribute": "combat.initiative.rollFormula",
+          "attributeType": "InitiativeType"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "Settings.UI",
+      "fields": [
+        {
+          "type": "picker",
+          "title": "Settings.CollectionImageType",
+          "placeholder": "Common.Default",
+          "attribute": "entities.Default.collection.image",
+          "attributeType": "ListImageDisplayType"
+        },
+        {
+          "type": "picker",
+          "title": "Settings.CritterCollectionImageType",
+          "placeholder": "Common.Default",
+          "attribute": "entities.Critter.collection.image",
+          "attributeType": "ListImageDisplayType"
+        },
+        {
+          "type": "picker",
+          "title": "Settings.CharacterCollectionImageType",
+          "placeholder": "Common.Default",
+          "attribute": "entities.Character.collection.image",
+          "attributeType": "ListImageDisplayType"
+        },
+        {
+          "type": "picker",
+          "title": "Settings.CombatantImageType",
+          "placeholder": "Common.Default",
+          "attribute": "entities.Default.combatant.image",
+          "attributeType": "CombatImageDisplayType"
+        }
+      ]
+    }
+  ]
+}

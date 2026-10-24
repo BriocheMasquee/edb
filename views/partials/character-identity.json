@@ -1,0 +1,80 @@
+{
+  "spacing": 10,
+  "padding": [16],
+  "views": [
+    {
+      "type": "hStack",
+      "bgColor": "#AACACD40",
+      "padding": [2, 8],
+      "views": [
+        {
+          "style": "subtitle",
+          "width": -1,
+          "value": "{{'Character.LookAndStory'|l}}"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "{% if descr %}{{descr}} ▪{% endif %}"
+    },
+    {
+      "type": "spacer",
+      "height": 5
+    },
+    {
+      "type": "hStack",
+      "bgColor": "#AACACD40",
+      "padding": [2, 8],
+      "views": [
+        {
+          "style": "subtitle",
+          "width": -1,
+          "value": "{{'Character.Quirk'|l}}"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "{{data.quirk}}",
+      "visibleIf": "{% if data.quirk %}true{% endif %}"
+    },
+    {
+      "type": "spacer",
+      "height": 5
+    },
+    {
+      "type": "hStack",
+      "bgColor": "#AACACD40",
+      "padding": [2, 8],
+      "views": [
+        {
+          "style": "subtitle",
+          "width": -1,
+          "value": "{{'Character.Motivations'|l}}"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "{{data.motivations}}",
+      "visibleIf": "{% if data.motivations %}true{% endif %}"
+    },
+    {
+      "type": "image",
+      "value": "{{image}}",
+      "link": "{{image}}"
+    },
+    {
+      "type": "divider",
+      "style": "rectangle",
+      "height": 2,
+      "padding": [0]
+    },
+    {
+      "type": "text",
+      "style": "source",
+      "value": "{{sourceFormatted}}"
+    }
+  ]
+}

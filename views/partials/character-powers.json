@@ -1,0 +1,76 @@
+{
+  "spacing": 10,
+  "padding": [16],
+  "views": [
+    {
+      "type": "hStack",
+      "alignment": "center",
+      "bgColor": "#AACACD40",
+      "padding": [2, 8],
+      "views": [
+        {
+          "style": "subtitle",
+          "value": "{{'Entity.Power.many'|l}}"
+        },
+        {
+          "type": "spacer"
+        },
+        {
+          "style": "columnLabelEnd",
+          "width": 80,
+          "value": "{{'Power.Used'|l}}"
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "attribute": "data.powers",
+      "views": [
+        {
+          "type": "hStack",
+          "spacing": 4,
+          "alignment": "top",
+          "views": [
+            {
+              "type": "vStack",
+              "alignment": "leading",
+              "width": -1,
+              "views": [
+                {
+                  "type": "disclosureGroup",
+                  "title": "{{name}}",
+                  "style": "skillTitle",
+                  "views": [
+                    {
+                      "type": "text",
+                      "value": "{{descr}}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "hStack",
+              "width": 80,
+              "views": [
+                {
+                  "type": "spacer"
+                },
+                {
+                  "type": "checkbox",
+                  "attribute": "used"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "divider",
+      "style": "rectangle",
+      "height": 2,
+      "padding": [0]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "title": "Entity.Critter",
+  "sections": [
+    {
+      "type": "group",
+      "fields": [
+        {
+          "title": "Critter.Type",
+          "type": "picker",
+          "attribute": "data.type",
+          "attributeType": "CritterType"
+        },
+        {
+          "title": "Critter.Number",
+          "type": "text",
+          "attribute": "data.number"
+        },
+        {
+          "title": "Common.Level",
+          "type": "number",
+          "attribute": "data.level"
+        },
+        {
+          "title": "Common.HitPoints",
+          "type": "text",
+          "attribute": "data.hp"
+        },
+        {
+          "title": "Common.Protection",
+          "type": "text",
+          "attribute": "data.protection"
+        },
+        {
+          "title": "Common.Speed",
+          "type": "form",
+          "text": "{% include 'movement.md' data.movement %}",
+          "attribute": "data.movement",
+          "form": {
+            "partial": "movement"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Critter.Abilities",
+      "type": "list",
+      "attribute": "data.abilities",
+      "form": {
+        "title": "Critter.Abilities",
+        "partial": "generic-feature"
+      }
+    }
+  ]
+}

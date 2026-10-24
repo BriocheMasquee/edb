@@ -1,0 +1,40 @@
+{
+  "AdvantageRule": [
+    "d20",
+    "d4"
+  ],
+  "DieType": [
+    "d12",
+    "d10",
+    "d8",
+    "d6",
+    "d4"
+  ],
+  "InitiativeType": [
+    "@entity.data.initiativeRule",
+    "(1d20cs<=@entity.data.initiativeTarget)*7+@entity.data.initiativeBase",
+    "@entity.data.initiativeSpeed"
+  ],
+  "ItemType": [
+    "weapon",
+    "armor",
+    "gear",
+    "food",
+    "treasure"
+  ],
+  "RuleType": [
+    "general",
+    "resistance",
+    "booBoo",
+    "condition",
+    "source"
+  ],
+  "SpeedType": [
+    "turtle",
+    "kiddo",
+    "adult",
+    "dog",
+    "horse",
+    "cheetah"
+  ]
+}

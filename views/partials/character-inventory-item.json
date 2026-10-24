@@ -1,0 +1,166 @@
+{
+  "padding": [0],
+  "views": [
+    {
+      "type": "hStack",
+      "spacing": 8,
+      "alignment": "top",
+      "views": [
+        {
+          "type": "vStack",
+          "spacing": 2,
+          "alignment": "leading",
+          "width": -1,
+          "views": [
+            {
+              "style": "skillTitle",
+              "value": "{{name}}",
+              "link": "{{reference}}"
+            },
+            {
+              "style": "columnLabelStart",
+              "value": "{{descr}}",
+              "visibleIf": "{% if descr %}true{% endif %}"
+            }
+          ]
+        },
+        {
+          "type": "vStack",
+          "spacing": 4,
+          "alignment": "trailing",
+          "width": 170,
+          "views": [
+            {
+              "type": "hStack",
+              "width": 96,
+              "height": 20,
+              "alignment": "center",
+              "borderWidth": 1,
+              "borderColor": "#488898",
+              "cornerRadius": 4,
+              "visibleIf": "{% if type == 'weapon' and damage %}true{% endif %}",
+              "link": "/roll/{{damage}}/{{name}}/damage",
+              "views": [
+                {
+                  "style": "rollBoxText",
+                  "width": -1,
+                  "value": "{{'Common.Damages'|l}}{{'Common.Colon'|l}} {{damage}}"
+                }
+              ]
+            },
+            {
+              "type": "hStack",
+              "width": 96,
+              "height": 20,
+              "alignment": "center",
+              "borderWidth": 1,
+              "borderColor": "#488898",
+              "cornerRadius": 4,
+              "visibleIf": "{% if type == 'armor' and protection != nil %}true{% endif %}",
+              "views": [
+                {
+                  "style": "rollBoxText",
+                  "width": -1,
+                  "value": "{{'Common.Protection'|l}}{{'Common.Colon'|l}} {{protection}}"
+                }
+              ]
+            },
+            {
+              "type": "hStack",
+              "visibleIf": "{% if quantity != nil and type != 'weapon' and type != 'armor' %}true{% endif %}",
+              "views": [
+                {
+                  "type": "spacer"
+                },
+                {
+                  "type": "checkboxGroup",
+                  "attribute": "quantityUsed",
+                  "custom": {
+                    "range": {
+                      "max": "quantity"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "hStack",
+              "width": 96,
+              "height": 20,
+              "alignment": "center",
+              "borderWidth": 1,
+              "borderColor": "#488898",
+              "cornerRadius": 4,
+              "visibleIf": "{% if usageDie %}true{% endif %}",
+              "views": [
+                {
+                  "type": "menuButton",
+                  "style": "wearButton",
+                  "alignment": "center",
+                  "width": -1,
+                  "height": 20,
+                  "value": "{{'Common.UsageDie'|l}}{{'Common.Colon'|l}} {{usageDie|map: 'DieType'}}",
+                  "views": [
+                    {
+                      "type": "button",
+                      "title": "Character.WearRoll",
+                      "link": "/roll/1{{usageDie}}/{{'Common.UsageDie'|l}}{{'Common.Colon'|l}} {{name}}/usage"
+                    },
+                    {
+                      "type": "divider"
+                    },
+                    {
+                      "type": "button",
+                      "title": "DieType.D12",
+                      "action": {
+                        "set": {
+                          "usageDie": "d12"
+                        }
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "title": "DieType.D10",
+                      "action": {
+                        "set": {
+                          "usageDie": "d10"
+                        }
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "title": "DieType.D8",
+                      "action": {
+                        "set": {
+                          "usageDie": "d8"
+                        }
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "title": "DieType.D6",
+                      "action": {
+                        "set": {
+                          "usageDie": "d6"
+                        }
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "title": "DieType.D4",
+                      "action": {
+                        "set": {
+                          "usageDie": "d4"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

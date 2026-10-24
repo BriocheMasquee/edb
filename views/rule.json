@@ -1,0 +1,60 @@
+{
+  "spacing": 10,
+  "padding": [16],
+  "views": [
+    {
+      "type": "vStack",
+      "spacing": 4,
+      "views": [
+        {
+          "type": "hStack",
+          "bgColor": "#284858F2",
+          "padding": [2, 6],
+          "alignment": "center",
+          "views": [
+            {
+              "style": "bandTitle",
+              "value": "{{name}}"
+            },
+            {
+              "type": "spacer"
+            },
+            {
+              "type": "image",
+              "value": "{% if type %}/icons/rule/{{type}}.png{% endif %}",
+              "width": 28,
+              "height": 28,
+              "custom": {
+                "renderingMode": "original"
+              }
+            }
+          ]
+        },
+        {
+          "style": "subtitle",
+          "value": "{% if type %}{{type | map: 'RuleType'}}{% endif %}"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "{% if descr %}{{descr}} ▪{% endif %}"
+    },
+    {
+      "type": "image",
+      "value": "{{image}}",
+      "link": "{{image}}"
+    },
+    {
+      "type": "divider",
+      "style": "rectangle",
+      "height": 2,
+      "padding": [0]
+    },
+    {
+      "type": "text",
+      "style": "source",
+      "value": "{{sourceFormatted}}"
+    }
+  ]
+}

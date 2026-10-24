@@ -1,0 +1,43 @@
+{
+  "entities": {
+    "Default": {
+      "collection": {
+        "image": "token"
+      },
+      "combatant": {
+        "bars": [
+          {
+            "attribute": "data.hp",
+            "title": "Common.HP",
+            "label": "Common.HP",
+            "temporary": false
+          }
+        ]
+      }
+    },
+    "Character": {
+      "role": "friendly",
+      "collection": {
+        "detail": "{% if data.class.name %}{{data.class.name}} • {% endif %}{{'Common.Level'|l}} {{data.level|default: 1}}"
+      },
+      "combatant": {
+        "detail": "{% if data.class.name %}{{data.class.name}} • {% endif %}{{'Common.Level'|l}} {{data.level|default: 1}}"
+      }
+    },
+    "Critter": {
+      "role": "hostile",
+      "combatant": {
+        "detail": "{% if data.level %}{{'Common.Level'|l}} {{data.level}}{% endif %}{% if data.protection %} • {{'Common.Protection'|l}} {{data.protection}}{% endif %}"
+      }
+    }
+  },
+  "combat": {
+    "initiative": {
+      "autoRoll": "all",
+      "rollFormula": "@entity.data.initiativeRule"
+    }
+  },
+  "statusEffects": {
+    "menuProvider": ["Rule:condition", "Rule:booBoo"]
+  }
+}

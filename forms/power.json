@@ -1,0 +1,16 @@
+{
+  "title": "Entity.Power",
+  "sections": [
+    {
+      "type": "group",
+      "fields": [
+        {
+          "title": "Power.Type",
+          "type": "picker",
+          "attribute": "data.type",
+          "attributeType": "PowerType"
+        }
+      ]
+    }
+  ]
+}

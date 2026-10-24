@@ -1,0 +1,165 @@
+{
+  "spacing": 10,
+  "padding": [16],
+  "views": [
+    {
+      "type": "hStack",
+      "spacing": 8,
+      "alignment": "top",
+      "views": [
+        {
+          "type": "vStack",
+          "spacing": 4,
+          "alignment": "leading",
+          "width": -1,
+          "views": [
+            {
+              "type": "hStack",
+              "bgColor": "#284858F2",
+              "padding": [2, 6],
+              "views": [
+                {
+                  "style": "bandTitle",
+                  "width": -1,
+                  "value": "{{name}}{% if data.nickname %} {{'Character.QuoteOpen'|l}}{{data.nickname}}{{'Character.QuoteClose'|l}}{% endif %}"
+                }
+              ]
+            },
+            {
+              "type": "hStack",
+              "padding": [0, 6],
+              "views": [
+                {
+                  "style": "subtitle",
+                  "width": -1,
+                  "value": "{% if data.class.name %}{{data.class.name}} · {% endif %}{% if data.age %}{{data.age}} {{'Character.Years'|l}} · {% endif %}{{'Common.Level'|l}} {{data.level|default: 1}}"
+                }
+              ]
+            },
+            {
+              "type": "hStack",
+              "padding": [0, 6],
+              "views": [
+                {
+                  "style": "headerInfo",
+                  "width": -1,
+                  "value": "{{'Character.Fame'|l}}{{'Common.Colon'|l}} {{data.fame|default: 0}} – {% if data.fameRemaining > 0 %}{{'Character.FameMore'|l}} {{data.fameRemaining}} {{'Character.FameToLevelUp'|l}}{% else %}{{'Character.FameLevelUp'|l}}{% endif %}"
+                }
+              ]
+            },
+            {
+              "type": "hStack",
+              "spacing": 4,
+              "padding": [0, 6],
+              "visibleIf": "{% if data.items %}true{% endif %}",
+              "views": [
+                {
+                  "style": "headerInfo",
+                  "width": 112,
+                  "value": "{{'Item.Encumbrance'|l}}{{'Common.Colon'|l}} {{data.encumbranceTotal|default: 0}}"
+                },
+                {
+                  "style": "headerWarn",
+                  "visibleIf": "{% if data.encumbranceTotal >= 10 %}true{% endif %}",
+                  "value": "– {{'Character.EncumbranceCrushed'|l}} !",
+                  "link": "/rule/ecrase"
+                },
+                {
+                  "style": "headerWarn",
+                  "visibleIf": "{% if data.encumbranceTotal >= 7 and data.encumbranceTotal < 10 %}true{% endif %}",
+                  "value": "– {{'Character.EncumbranceOverloaded'|l}} !",
+                  "link": "/rule/surcharge"
+                },
+                {
+                  "style": "headerWarn",
+                  "visibleIf": "{% if data.encumbranceTotal >= 4 and data.encumbranceTotal < 7 %}true{% endif %}",
+                  "value": "– {{'Character.EncumbranceBurdened'|l}} !",
+                  "link": "/rule/encombre"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "vStack",
+          "spacing": 4,
+          "alignment": "center",
+          "width": 90,
+          "height": 90,
+          "bgColor": "#AACACD40",
+          "padding": [6, 4],
+          "views": [
+            {
+              "style": "hpLabel",
+              "width": -1,
+              "value": "{{'Common.HP'|l}}"
+            },
+            {
+              "style": "hpValue",
+              "width": -1,
+              "value": "{{data.hp.current|default: 0}} / {{data.hp.maximum|default: 0}}",
+              "link": "/health/data.hp"
+            },
+            {
+              "style": "hpDie",
+              "width": -1,
+              "visibleIf": "{% if data.hp.die %}true{% endif %}",
+              "value": "+{{data.hp.die|map: 'DieType'}} {{'Character.HitDiePerLevel'|l}}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "spacer",
+      "height": 0
+    },
+    {
+      "id": "mainTabs",
+      "type": "tabs",
+      "custom": {
+        "buttonStyle": {
+          "selected": "prominent"
+        }
+      },
+      "views": [
+        {
+          "id": "identity",
+          "title": "Character.TabIdentity",
+          "custom": {
+            "icon": "person"
+          },
+          "type": "partial",
+          "value": "character-identity"
+        },
+        {
+          "id": "stats",
+          "title": "Character.TabStats",
+          "custom": {
+            "icon": "chart.bar"
+          },
+          "type": "partial",
+          "value": "character-stats"
+        },
+        {
+          "id": "powers",
+          "title": "Character.TabPowers",
+          "custom": {
+            "icon": "sparkles"
+          },
+          "type": "partial",
+          "value": "character-powers"
+        },
+        {
+          "id": "inventory",
+          "title": "Character.TabInventory",
+          "custom": {
+            "icon": "bag"
+          },
+          "type": "partial",
+          "value": "character-inventory"
+        }
+      ]
+    }
+  ]
+}

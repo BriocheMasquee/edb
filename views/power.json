@@ -1,0 +1,48 @@
+{
+  "spacing": 10,
+  "padding": [16],
+  "views": [
+    {
+      "type": "vStack",
+      "spacing": 4,
+      "views": [
+        {
+          "type": "hStack",
+          "bgColor": "#284858F2",
+          "padding": [2, 6],
+          "views": [
+            {
+              "style": "bandTitle",
+              "width": -1,
+              "value": "{{name}}"
+            }
+          ]
+        },
+        {
+          "style": "subtitle",
+          "value": "{{data.type | map: 'PowerType'}}"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "{% if descr %}{{descr}} ▪{% endif %}"
+    },
+    {
+      "type": "image",
+      "value": "{{image}}",
+      "link": "{{image}}"
+    },
+    {
+      "type": "divider",
+      "style": "rectangle",
+      "height": 2,
+      "padding": [0]
+    },
+    {
+      "type": "text",
+      "style": "source",
+      "value": "{{sourceFormatted}}"
+    }
+  ]
+}

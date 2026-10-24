@@ -1,0 +1,13 @@
+{
+  "id": "edb",
+  "name": "Exploirateurs de bruines",
+  "shortName": "Bruines",
+  "version": "1.0.0",
+  "author": "Brioche Masquée",
+  "descr": "Jeu de rôle fantasy post-apocalyptique de Vivien Féasson (éd. l'Averse), où des enfants perdus bravent la pluie et les monstres de la Ville.",
+  "shortDescr": "Aventures dans les bruines",
+  "banner": "images/banner.webp",
+  "website": "https://vivienfeasson.com",
+  "repository": "https://github.com/BriocheMasquee/edb",
+  "package": "https://github.com/BriocheMasquee/edb/releases/latest/download/manifest.json"
+}

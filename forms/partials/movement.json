@@ -1,0 +1,28 @@
+{
+  "title": "Common.Speed",
+  "sections": [
+    {
+      "title": "Common.SpeedLike",
+      "type": "group",
+      "fields": [
+        {
+          "title": "Common.SpeedLike",
+          "type": "picker",
+          "attribute": "speed",
+          "attributeType": "SpeedType"
+        }
+      ]
+    },
+    {
+      "title": "Common.SpeedDetails",
+      "type": "group",
+      "fields": [
+        {
+          "title": "Common.SpeedDetails",
+          "type": "textArea",
+          "attribute": "speedDetails"
+        }
+      ]
+    }
+  ]
+}

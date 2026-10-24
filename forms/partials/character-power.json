@@ -1,0 +1,45 @@
+{
+  "sections": [
+    {
+      "type": "group",
+      "fields": [
+        {
+          "placeholder": "Common.Name",
+          "attribute": "name"
+        }
+      ]
+    },
+    {
+      "title": "Common.Description",
+      "type": "group",
+      "fields": [
+        {
+          "type": "textArea",
+          "attribute": "descr"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "fields": [
+        {
+          "title": "Power.Type",
+          "type": "picker",
+          "attribute": "type",
+          "attributeType": "PowerType"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "fields": [
+        {
+          "title": "Common.Reference",
+          "type": "reference",
+          "attribute": "reference",
+          "attributeType": "Power"
+        }
+      ]
+    }
+  ]
+}

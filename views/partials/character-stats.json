@@ -1,0 +1,532 @@
+{
+  "spacing": 10,
+  "padding": [16],
+  "views": [
+    {
+      "type": "hStack",
+      "bgColor": "#AACACD40",
+      "padding": [2, 8],
+      "views": [
+        {
+          "style": "subtitle",
+          "width": -1,
+          "value": "{{'Character.Resistances'|l}}"
+        }
+      ]
+    },
+    {
+      "type": "hStack",
+      "spacing": 4,
+      "alignment": "center",
+      "views": [
+        {
+          "type": "spacer"
+        },
+        {
+          "type": "hStack",
+          "width": 150,
+          "height": 20,
+          "alignment": "center",
+          "borderWidth": 1,
+          "borderColor": "#488898",
+          "cornerRadius": 4,
+          "views": [
+            {
+              "type": "menuButton",
+              "style": "wearButton",
+              "alignment": "center",
+              "width": -1,
+              "height": 20,
+              "value": "{% if data.rollMode == 'advantage' %}{{'Character.RollModeAdvantage'|l}}{% else %}{% if data.rollMode == 'disadvantage' %}{{'Character.RollModeDisadvantage'|l}}{% else %}{{'Character.RollModeNormal'|l}}{% endif %}{% endif %}",
+              "views": [
+                {
+                  "type": "button",
+                  "title": "Character.RollModeNormal",
+                  "action": {
+                    "set": {
+                      "data.rollMode": "normal"
+                    }
+                  }
+                },
+                {
+                  "type": "button",
+                  "title": "Character.RollModeAdvantage",
+                  "action": {
+                    "set": {
+                      "data.rollMode": "advantage"
+                    }
+                  }
+                },
+                {
+                  "type": "button",
+                  "title": "Character.RollModeDisadvantage",
+                  "action": {
+                    "set": {
+                      "data.rollMode": "disadvantage"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "vStack",
+      "spacing": 8,
+      "views": [
+        {
+          "type": "hStack",
+          "spacing": 4,
+          "alignment": "center",
+          "visibleIf": "{% if data.resistances.grab != nil %}true{% endif %}",
+          "views": [
+            {
+              "type": "hStack",
+              "spacing": 4,
+              "width": 212,
+              "views": [
+                {
+                  "type": "text",
+                  "style": "bullet",
+                  "width": 14,
+                  "value": "▪"
+                },
+                {
+                  "style": "resName",
+                  "value": "{{'Resistance.Grab'|l}}"
+                }
+              ]
+            },
+            {
+              "style": "resValue",
+              "width": 40,
+              "value": "{{data.resistances.grab}}"
+            },
+            {
+              "type": "spacer"
+            },
+            {
+              "type": "button",
+              "style": "rollButton",
+              "alignment": "center",
+              "width": 42,
+              "height": 20,
+              "title": "Character.RollTest",
+              "link": "{% if data.rollMode == 'advantage' %}{% if data.advantageRule == 'd4' %}/roll/({{data.resistances.grab}}+24-d20+d4)÷24/{{'Resistance.Grab'|l}} ({{'Common.Advantage'|l}} d4)/check{% else %}/roll/((2d20cs<={{data.resistances.grab}})+1)÷2/{{'Resistance.Grab'|l}} ({{'Common.Advantage'|l}})/check{% endif %}{% else %}{% if data.rollMode == 'disadvantage' %}{% if data.advantageRule == 'd4' %}/roll/({{data.resistances.grab}}+24-d20-d4)÷24/{{'Resistance.Grab'|l}} ({{'Common.Disadvantage'|l}} d4)/check{% else %}/roll/(2d20cs<={{data.resistances.grab}})÷2/{{'Resistance.Grab'|l}} ({{'Common.Disadvantage'|l}})/check{% endif %}{% else %}/roll/1d20cs<={{data.resistances.grab}}/{{'Resistance.Grab'|l}}/check{% endif %}{% endif %}"
+            }
+          ]
+        },
+        {
+          "type": "hStack",
+          "spacing": 4,
+          "visibleIf": "{% if data.resistances.grab == nil %}true{% endif %}",
+          "views": [
+            {
+              "type": "text",
+              "style": "bullet",
+              "width": 14,
+              "value": "▪"
+            },
+            {
+              "style": "resName",
+              "value": "{{'Resistance.Grab'|l}}"
+            }
+          ]
+        },
+        {
+          "type": "hStack",
+          "spacing": 4,
+          "alignment": "center",
+          "visibleIf": "{% if data.resistances.fear != nil %}true{% endif %}",
+          "views": [
+            {
+              "type": "hStack",
+              "spacing": 4,
+              "width": 212,
+              "views": [
+                {
+                  "type": "text",
+                  "style": "bullet",
+                  "width": 14,
+                  "value": "▪"
+                },
+                {
+                  "style": "resName",
+                  "value": "{{'Resistance.Fear'|l}}"
+                }
+              ]
+            },
+            {
+              "style": "resValue",
+              "width": 40,
+              "value": "{{data.resistances.fear}}"
+            },
+            {
+              "type": "spacer"
+            },
+            {
+              "type": "button",
+              "style": "rollButton",
+              "alignment": "center",
+              "width": 42,
+              "height": 20,
+              "title": "Character.RollTest",
+              "link": "{% if data.rollMode == 'advantage' %}{% if data.advantageRule == 'd4' %}/roll/({{data.resistances.fear}}+24-d20+d4)÷24/{{'Resistance.Fear'|l}} ({{'Common.Advantage'|l}} d4)/check{% else %}/roll/((2d20cs<={{data.resistances.fear}})+1)÷2/{{'Resistance.Fear'|l}} ({{'Common.Advantage'|l}})/check{% endif %}{% else %}{% if data.rollMode == 'disadvantage' %}{% if data.advantageRule == 'd4' %}/roll/({{data.resistances.fear}}+24-d20-d4)÷24/{{'Resistance.Fear'|l}} ({{'Common.Disadvantage'|l}} d4)/check{% else %}/roll/(2d20cs<={{data.resistances.fear}})÷2/{{'Resistance.Fear'|l}} ({{'Common.Disadvantage'|l}})/check{% endif %}{% else %}/roll/1d20cs<={{data.resistances.fear}}/{{'Resistance.Fear'|l}}/check{% endif %}{% endif %}"
+            }
+          ]
+        },
+        {
+          "type": "hStack",
+          "spacing": 4,
+          "visibleIf": "{% if data.resistances.fear == nil %}true{% endif %}",
+          "views": [
+            {
+              "type": "text",
+              "style": "bullet",
+              "width": 14,
+              "value": "▪"
+            },
+            {
+              "style": "resName",
+              "value": "{{'Resistance.Fear'|l}}"
+            }
+          ]
+        },
+        {
+          "type": "hStack",
+          "spacing": 4,
+          "alignment": "center",
+          "visibleIf": "{% if data.resistances.hurt != nil %}true{% endif %}",
+          "views": [
+            {
+              "type": "hStack",
+              "spacing": 4,
+              "width": 212,
+              "views": [
+                {
+                  "type": "text",
+                  "style": "bullet",
+                  "width": 14,
+                  "value": "▪"
+                },
+                {
+                  "style": "resName",
+                  "value": "{{'Resistance.Hurt'|l}}"
+                }
+              ]
+            },
+            {
+              "style": "resValue",
+              "width": 40,
+              "value": "{{data.resistances.hurt}}"
+            },
+            {
+              "type": "spacer"
+            },
+            {
+              "type": "button",
+              "style": "rollButton",
+              "alignment": "center",
+              "width": 42,
+              "height": 20,
+              "title": "Character.RollTest",
+              "link": "{% if data.rollMode == 'advantage' %}{% if data.advantageRule == 'd4' %}/roll/({{data.resistances.hurt}}+24-d20+d4)÷24/{{'Resistance.Hurt'|l}} ({{'Common.Advantage'|l}} d4)/check{% else %}/roll/((2d20cs<={{data.resistances.hurt}})+1)÷2/{{'Resistance.Hurt'|l}} ({{'Common.Advantage'|l}})/check{% endif %}{% else %}{% if data.rollMode == 'disadvantage' %}{% if data.advantageRule == 'd4' %}/roll/({{data.resistances.hurt}}+24-d20-d4)÷24/{{'Resistance.Hurt'|l}} ({{'Common.Disadvantage'|l}} d4)/check{% else %}/roll/(2d20cs<={{data.resistances.hurt}})÷2/{{'Resistance.Hurt'|l}} ({{'Common.Disadvantage'|l}})/check{% endif %}{% else %}/roll/1d20cs<={{data.resistances.hurt}}/{{'Resistance.Hurt'|l}}/check{% endif %}{% endif %}"
+            }
+          ]
+        },
+        {
+          "type": "hStack",
+          "spacing": 4,
+          "visibleIf": "{% if data.resistances.hurt == nil %}true{% endif %}",
+          "views": [
+            {
+              "type": "text",
+              "style": "bullet",
+              "width": 14,
+              "value": "▪"
+            },
+            {
+              "style": "resName",
+              "value": "{{'Resistance.Hurt'|l}}"
+            }
+          ]
+        },
+        {
+          "type": "hStack",
+          "spacing": 4,
+          "alignment": "center",
+          "visibleIf": "{% if data.resistances.fall != nil %}true{% endif %}",
+          "views": [
+            {
+              "type": "hStack",
+              "spacing": 4,
+              "width": 212,
+              "views": [
+                {
+                  "type": "text",
+                  "style": "bullet",
+                  "width": 14,
+                  "value": "▪"
+                },
+                {
+                  "style": "resName",
+                  "value": "{{'Resistance.Fall'|l}}"
+                }
+              ]
+            },
+            {
+              "style": "resValue",
+              "width": 40,
+              "value": "{{data.resistances.fall}}"
+            },
+            {
+              "type": "spacer"
+            },
+            {
+              "type": "button",
+              "style": "rollButton",
+              "alignment": "center",
+              "width": 42,
+              "height": 20,
+              "title": "Character.RollTest",
+              "link": "{% if data.rollMode == 'advantage' %}{% if data.advantageRule == 'd4' %}/roll/({{data.resistances.fall}}+24-d20+d4)÷24/{{'Resistance.Fall'|l}} ({{'Common.Advantage'|l}} d4)/check{% else %}/roll/((2d20cs<={{data.resistances.fall}})+1)÷2/{{'Resistance.Fall'|l}} ({{'Common.Advantage'|l}})/check{% endif %}{% else %}{% if data.rollMode == 'disadvantage' %}{% if data.advantageRule == 'd4' %}/roll/({{data.resistances.fall}}+24-d20-d4)÷24/{{'Resistance.Fall'|l}} ({{'Common.Disadvantage'|l}} d4)/check{% else %}/roll/(2d20cs<={{data.resistances.fall}})÷2/{{'Resistance.Fall'|l}} ({{'Common.Disadvantage'|l}})/check{% endif %}{% else %}/roll/1d20cs<={{data.resistances.fall}}/{{'Resistance.Fall'|l}}/check{% endif %}{% endif %}"
+            }
+          ]
+        },
+        {
+          "type": "hStack",
+          "spacing": 4,
+          "visibleIf": "{% if data.resistances.fall == nil %}true{% endif %}",
+          "views": [
+            {
+              "type": "text",
+              "style": "bullet",
+              "width": 14,
+              "value": "▪"
+            },
+            {
+              "style": "resName",
+              "value": "{{'Resistance.Fall'|l}}"
+            }
+          ]
+        },
+        {
+          "type": "hStack",
+          "spacing": 4,
+          "alignment": "center",
+          "visibleIf": "{% if data.resistances.craving != nil %}true{% endif %}",
+          "views": [
+            {
+              "type": "hStack",
+              "spacing": 4,
+              "width": 212,
+              "views": [
+                {
+                  "type": "text",
+                  "style": "bullet",
+                  "width": 14,
+                  "value": "▪"
+                },
+                {
+                  "style": "resName",
+                  "value": "{{'Resistance.Craving'|l}}"
+                }
+              ]
+            },
+            {
+              "style": "resValue",
+              "width": 40,
+              "value": "{{data.resistances.craving}}"
+            },
+            {
+              "type": "spacer"
+            },
+            {
+              "type": "button",
+              "style": "rollButton",
+              "alignment": "center",
+              "width": 42,
+              "height": 20,
+              "title": "Character.RollTest",
+              "link": "{% if data.rollMode == 'advantage' %}{% if data.advantageRule == 'd4' %}/roll/({{data.resistances.craving}}+24-d20+d4)÷24/{{'Resistance.Craving'|l}} ({{'Common.Advantage'|l}} d4)/check{% else %}/roll/((2d20cs<={{data.resistances.craving}})+1)÷2/{{'Resistance.Craving'|l}} ({{'Common.Advantage'|l}})/check{% endif %}{% else %}{% if data.rollMode == 'disadvantage' %}{% if data.advantageRule == 'd4' %}/roll/({{data.resistances.craving}}+24-d20-d4)÷24/{{'Resistance.Craving'|l}} ({{'Common.Disadvantage'|l}} d4)/check{% else %}/roll/(2d20cs<={{data.resistances.craving}})÷2/{{'Resistance.Craving'|l}} ({{'Common.Disadvantage'|l}})/check{% endif %}{% else %}/roll/1d20cs<={{data.resistances.craving}}/{{'Resistance.Craving'|l}}/check{% endif %}{% endif %}"
+            }
+          ]
+        },
+        {
+          "type": "hStack",
+          "spacing": 4,
+          "visibleIf": "{% if data.resistances.craving == nil %}true{% endif %}",
+          "views": [
+            {
+              "type": "text",
+              "style": "bullet",
+              "width": 14,
+              "value": "▪"
+            },
+            {
+              "style": "resName",
+              "value": "{{'Resistance.Craving'|l}}"
+            }
+          ]
+        },
+        {
+          "type": "hStack",
+          "spacing": 4,
+          "alignment": "center",
+          "visibleIf": "{% if data.resistances.stealth != nil %}true{% endif %}",
+          "views": [
+            {
+              "type": "hStack",
+              "spacing": 4,
+              "width": 212,
+              "views": [
+                {
+                  "type": "text",
+                  "style": "bullet",
+                  "width": 14,
+                  "value": "▪"
+                },
+                {
+                  "style": "resName",
+                  "value": "{{'Resistance.Stealth'|l}}"
+                }
+              ]
+            },
+            {
+              "style": "resValue",
+              "width": 40,
+              "value": "{{data.resistances.stealth}}"
+            },
+            {
+              "type": "spacer"
+            },
+            {
+              "type": "button",
+              "style": "rollButton",
+              "alignment": "center",
+              "width": 42,
+              "height": 20,
+              "title": "Character.RollTest",
+              "link": "{% if data.rollMode == 'advantage' %}{% if data.advantageRule == 'd4' %}/roll/({{data.resistances.stealth}}+24-d20+d4)÷24/{{'Resistance.Stealth'|l}} ({{'Common.Advantage'|l}} d4)/check{% else %}/roll/((2d20cs<={{data.resistances.stealth}})+1)÷2/{{'Resistance.Stealth'|l}} ({{'Common.Advantage'|l}})/check{% endif %}{% else %}{% if data.rollMode == 'disadvantage' %}{% if data.advantageRule == 'd4' %}/roll/({{data.resistances.stealth}}+24-d20-d4)÷24/{{'Resistance.Stealth'|l}} ({{'Common.Disadvantage'|l}} d4)/check{% else %}/roll/(2d20cs<={{data.resistances.stealth}})÷2/{{'Resistance.Stealth'|l}} ({{'Common.Disadvantage'|l}})/check{% endif %}{% else %}/roll/1d20cs<={{data.resistances.stealth}}/{{'Resistance.Stealth'|l}}/check{% endif %}{% endif %}"
+            }
+          ]
+        },
+        {
+          "type": "hStack",
+          "spacing": 4,
+          "visibleIf": "{% if data.resistances.stealth == nil %}true{% endif %}",
+          "views": [
+            {
+              "type": "text",
+              "style": "bullet",
+              "width": 14,
+              "value": "▪"
+            },
+            {
+              "style": "resName",
+              "value": "{{'Resistance.Stealth'|l}}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "spacer",
+      "height": 8
+    },
+    {
+      "type": "hStack",
+      "bgColor": "#AACACD40",
+      "padding": [2, 8],
+      "views": [
+        {
+          "style": "subtitle",
+          "width": -1,
+          "value": "{{'Character.Skills'|l}}"
+        }
+      ]
+    },
+    {
+      "style": "columnLabelStart",
+      "value": "{{'Character.SkillTagLevel1'|l}}",
+      "visibleIf": "{% if data.class.name %}true{% endif %}"
+    },
+    {
+      "type": "disclosureGroup",
+      "title": "{{'Class.ResistanceBonus'|l}}",
+      "style": "skillTitle",
+      "visibleIf": "{% if data.class.resistanceBonusLevel1 %}true{% endif %}",
+      "views": [
+        {
+          "type": "text",
+          "value": "{{data.class.resistanceBonusLevel1}}"
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "attribute": "data.class.bonusLevel1",
+      "views": [
+        {
+          "type": "disclosureGroup",
+          "title": "{{name}}",
+          "style": "skillTitle",
+          "views": [
+            {
+              "type": "text",
+              "value": "{{text}}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "spacer",
+      "height": 6,
+      "visibleIf": "{% if data.class.name and data.level >= 2 %}true{% endif %}"
+    },
+    {
+      "style": "columnLabelStart",
+      "value": "{{'Character.SkillTagLevelUp'|l}}",
+      "visibleIf": "{% if data.class.name and data.level >= 2 %}true{% endif %}"
+    },
+    {
+      "type": "disclosureGroup",
+      "title": "{{'Class.ResistanceBonus'|l}}",
+      "style": "skillTitle",
+      "visibleIf": "{% if data.class.resistanceBonusLevelUp and data.level >= 2 %}true{% endif %}",
+      "views": [
+        {
+          "type": "text",
+          "value": "{{data.class.resistanceBonusLevelUp}}"
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "attribute": "data.class.bonusLevelUp",
+      "visibleIf": "{% if data.class.name and data.level >= 2 %}true{% endif %}",
+      "views": [
+        {
+          "type": "disclosureGroup",
+          "title": "{{name}}",
+          "style": "skillTitle",
+          "views": [
+            {
+              "type": "text",
+              "value": "{{text}}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "divider",
+      "style": "rectangle",
+      "height": 2,
+      "padding": [0]
+    }
+  ]
+}

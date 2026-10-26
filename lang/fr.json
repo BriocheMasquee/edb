@@ -62,9 +62,11 @@
   "Common.HP": "PV",
   "Common.HitPoints": "Points de vie",
   "Common.Language": "Langue",
+  "Common.LanguageCode": "fr",
   "Common.Level": "Niveau",
   "Common.Locale": "Paramètres régionaux",
   "Common.Name": "Nom",
+  "Common.Notes": "Notes",
   "Common.Protection": "Protection",
   "Common.Reference": "Référence",
   "Common.Source": "Source",
@@ -101,6 +103,8 @@
   "Entity.Table.many": "Tables",
   "Entity.Character": "Exploirateur",
   "Entity.Character.many": "Exploirateurs",
+  "Entity.Npc": "PNJ",
+  "Entity.Npc.many": "PNJ",
   "ImageType.Icon": "Icône",
   "ImageType.Image": "Image",
   "ImageType.Token": "Jeton",
@@ -120,6 +124,7 @@
   "ItemType.Treasure": "Trésor",
   "ItemType.Weapon": "Arme",
   "Power.Type": "Type de pouvoir",
+  "Power.Prepared": "Prép.",
   "Power.Used": "Utilisation",
   "PowerType.Grossness": "Dégoûtancetés",
   "PowerType.Tale": "Histoires vraies",
@@ -146,5 +151,6 @@
   "SpeedType.Dog": "un chien",
   "SpeedType.Horse": "un cheval",
   "SpeedType.Kiddo": "un gaminot",
-  "SpeedType.Turtle": "une tortue"
+  "SpeedType.Turtle": "une tortue",
+  "Table.Roll": "Lancer"
 }

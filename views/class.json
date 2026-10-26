@@ -4,7 +4,7 @@
   "views": [
     {
       "type": "hStack",
-      "bgColor": "#284858F2",
+      "bgColor": "#284858",
       "padding": [2, 6],
       "views": [
         {
@@ -16,7 +16,7 @@
     },
     {
       "type": "text",
-      "value": "{% if descr %}{{descr}} ▪{% endif %}"
+      "value": "{{descr}}"
     },
     {
       "type": "spacer",
@@ -33,7 +33,7 @@
           "padding": [2, 8],
           "views": [
             {
-              "style": "subtitle",
+              "style": "bandHeading",
               "width": -1,
               "value": "{{'Class.BonusLevel1'|l}}"
             }
@@ -125,7 +125,7 @@
           "padding": [2, 8],
           "views": [
             {
-              "style": "subtitle",
+              "style": "bandHeading",
               "width": -1,
               "value": "{{'Class.BonusLevelUp'|l}}"
             }

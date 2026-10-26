@@ -8,7 +8,7 @@
       "padding": [2, 8],
       "views": [
         {
-          "style": "subtitle",
+          "style": "bandHeading",
           "width": -1,
           "value": "{{'Character.LookAndStory'|l}}"
         }
@@ -16,7 +16,7 @@
     },
     {
       "type": "text",
-      "value": "{% if descr %}{{descr}} ▪{% endif %}"
+      "value": "{{descr}}"
     },
     {
       "type": "spacer",
@@ -28,7 +28,7 @@
       "padding": [2, 8],
       "views": [
         {
-          "style": "subtitle",
+          "style": "bandHeading",
           "width": -1,
           "value": "{{'Character.Quirk'|l}}"
         }
@@ -49,7 +49,7 @@
       "padding": [2, 8],
       "views": [
         {
-          "style": "subtitle",
+          "style": "bandHeading",
           "width": -1,
           "value": "{{'Character.Motivations'|l}}"
         }

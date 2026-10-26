@@ -13,6 +13,7 @@
         {
           "title": "Item.Price",
           "type": "number",
+          "visibleIf": "data.type != 'treasure'",
           "attribute": "data.price"
         },
         {
@@ -40,14 +41,14 @@
         {
           "title": "Common.UsageDie",
           "type": "picker",
-          "visibleIf": "data.type == 'weapon' or data.type == 'armor' or data.type == 'gear' or data.type == 'treasure'",
+          "visibleIf": "data.type == 'weapon' or data.type == 'armor' or data.type == 'gear'",
           "attribute": "data.usageDie",
           "attributeType": "DieType"
         },
         {
           "title": "Item.Quantity",
           "type": "number",
-          "visibleIf": "data.type == 'gear' or data.type == 'food'",
+          "visibleIf": "data.type == 'gear' or data.type == 'food' or data.type == 'treasure'",
           "attribute": "data.quantity"
         }
       ]

@@ -15,7 +15,7 @@
           "views": [
             {
               "type": "hStack",
-              "bgColor": "#284858F2",
+              "bgColor": "#284858",
               "padding": [2, 6],
               "views": [
                 {
@@ -30,7 +30,7 @@
               "padding": [0, 6],
               "views": [
                 {
-                  "style": "subtitle",
+                  "style": "heading4",
                   "width": -1,
                   "value": "{% if data.class.name %}{{data.class.name}} · {% endif %}{% if data.age %}{{data.age}} {{'Character.Years'|l}} · {% endif %}{{'Common.Level'|l}} {{data.level|default: 1}}"
                 }

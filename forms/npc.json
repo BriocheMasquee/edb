@@ -1,0 +1,48 @@
+{
+  "title": "Entity.Npc",
+  "sections": [
+    {
+      "type": "group",
+      "fields": [
+        {
+          "title": "Critter.Number",
+          "type": "text",
+          "attribute": "data.number"
+        },
+        {
+          "title": "Common.Level",
+          "type": "number",
+          "attribute": "data.level"
+        },
+        {
+          "title": "Common.HitPoints",
+          "type": "text",
+          "attribute": "data.hp"
+        },
+        {
+          "title": "Common.Protection",
+          "type": "text",
+          "attribute": "data.protection"
+        },
+        {
+          "title": "Common.Speed",
+          "type": "form",
+          "text": "{% include 'movement.md' data.movement %}",
+          "attribute": "data.movement",
+          "form": {
+            "partial": "movement"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Critter.Abilities",
+      "type": "list",
+      "attribute": "data.abilities",
+      "form": {
+        "title": "Critter.Abilities",
+        "partial": "generic-feature"
+      }
+    }
+  ]
+}

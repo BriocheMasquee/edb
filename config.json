@@ -28,6 +28,57 @@
       "role": "hostile",
       "combatant": {
         "detail": "{% if data.level %}{{'Common.Level'|l}} {{data.level}}{% endif %}{% if data.protection %} • {{'Common.Protection'|l}} {{data.protection}}{% endif %}"
+      },
+      "view": {
+        "renderer": "html",
+        "template": "critter",
+        "updateMode": "load"
+      }
+    },
+    "Npc": {
+      "role": "neutral",
+      "combatant": {
+        "detail": "{% if data.level %}{{'Common.Level'|l}} {{data.level}}{% endif %}{% if data.protection %} • {{'Common.Protection'|l}} {{data.protection}}{% endif %}"
+      },
+      "view": {
+        "renderer": "html",
+        "template": "npc",
+        "updateMode": "load"
+      }
+    },
+    "Table": {
+      "view": {
+        "renderer": "html",
+        "template": "table",
+        "updateMode": "load"
+      }
+    },
+    "Item": {
+      "view": {
+        "renderer": "html",
+        "template": "item",
+        "updateMode": "load"
+      }
+    },
+    "Class": {
+      "view": {
+        "renderer": "html",
+        "template": "class",
+        "updateMode": "load"
+      }
+    },
+    "Power": {
+      "view": {
+        "renderer": "html",
+        "template": "power",
+        "updateMode": "load"
+      }
+    },
+    "Rule": {
+      "view": {
+        "renderer": "html",
+        "template": "rule",
+        "updateMode": "load"
       }
     }
   },

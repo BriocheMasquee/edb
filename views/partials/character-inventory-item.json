@@ -36,7 +36,7 @@
               "height": 20,
               "alignment": "center",
               "borderWidth": 1,
-              "borderColor": "#488898",
+              "borderColor": "#267890",
               "cornerRadius": 4,
               "visibleIf": "{% if type == 'weapon' and damage %}true{% endif %}",
               "link": "/roll/{{damage}}/{{name}}/damage",
@@ -54,7 +54,7 @@
               "height": 20,
               "alignment": "center",
               "borderWidth": 1,
-              "borderColor": "#488898",
+              "borderColor": "#267890",
               "cornerRadius": 4,
               "visibleIf": "{% if type == 'armor' and protection != nil %}true{% endif %}",
               "views": [
@@ -89,7 +89,7 @@
               "height": 20,
               "alignment": "center",
               "borderWidth": 1,
-              "borderColor": "#488898",
+              "borderColor": "#267890",
               "cornerRadius": 4,
               "visibleIf": "{% if usageDie %}true{% endif %}",
               "views": [

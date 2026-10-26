@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block kind %}table{% endblock %}
+{% block content %}
+<main class="entity">
+  <header class="table-header">
+    <h1 class="title">{{ name }}</h1>
+    <div class="table-sub">
+      <h4 class="table-kind">{{ 'Entity.Table'|l }}</h4>
+      <a class="table-roll" href="{{ rollURL }}">{{ 'Table.Roll'|l }}{% if formula %} {{ formula }}{% endif %}</a>
+    </div>
+  </header>
+  {% if descr %}<div class="description" data-page-content>{{ descr|md }}</div>{% endif %}
+  {{ content }}
+  {% if notes %}
+  <h3>{{ 'Common.Notes'|l }}</h3>
+  {{ notes|md }}
+  {% endif %}
+  {% if footer %}
+  <footer class="entity-footer">
+    <hr>
+    <div class="source table-footer">{{ footer|md }}</div>
+  </footer>
+  <script>
+    (function () {
+      var box = document.querySelector('.table-footer');
+      if (!box) {
+        return;
+      }
+      var labels = box.querySelectorAll('strong');
+
+      /* Le second libellé (Location) et tout ce qui le suit disparaissent */
+      if (labels.length > 1) {
+        var node = labels[1];
+        var block = node.parentNode;
+        var onlyThis = block !== box && block.firstElementChild === node && block.textContent.trim().indexOf(node.textContent.trim()) === 0;
+        if (onlyThis) {
+          while (block.nextSibling) {
+            block.parentNode.removeChild(block.nextSibling);
+          }
+          block.parentNode.removeChild(block);
+        } else {
+          var previous = node.previousSibling;
+          while (previous && previous.nodeType === 3 && previous.nodeValue.trim() === '') {
+            var spare = previous;
+            previous = previous.previousSibling;
+            spare.parentNode.removeChild(spare);
+          }
+          if (previous && previous.nodeName === 'BR') {
+            previous.parentNode.removeChild(previous);
+          }
+          while (node.nextSibling) {
+            node.parentNode.removeChild(node.nextSibling);
+          }
+          node.parentNode.removeChild(node);
+        }
+      }
+
+      /* Le premier libellé (Source) disparaît, le reste de la ligne demeure */
+      if (labels.length) {
+        var first = labels[0];
+        var next = first.nextSibling;
+        if (next && next.nodeType === 3) {
+          next.nodeValue = next.nodeValue.replace(/^\s+/, '');
+        }
+        first.parentNode.removeChild(first);
+      }
+    })();
+  </script>
+  {% endif %}
+</main>
+{% endblock %}

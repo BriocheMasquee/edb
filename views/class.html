@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="entity">
+  <header class="entity-header">
+    <h1 class="title">{{ name }}</h1>
+  </header>
+  {% if descr %}<div class="description" data-page-content>{{ descr|md }}</div>{% endif %}
+  {% if data.hp != nil or data.resistanceBonusLevel1 or data.bonusLevel1 %}
+  <h2>{{ 'Class.BonusLevel1'|l }}</h2>
+  <ul>
+    {% if data.hp != nil %}<li>{% markdown -%}
+      **{{ 'Common.HitPoints'|l }}{{ 'Common.Colon'|l }}** {{ data.hp }}
+    {% endmarkdown %}</li>{% endif %}
+    {% if data.resistanceBonusLevel1 %}<li>{% markdown -%}
+      **{{ 'Class.ResistanceBonus'|l }}{{ 'Common.Colon'|l }}** {{ data.resistanceBonusLevel1 }}
+    {% endmarkdown %}</li>{% endif %}
+    {% for bonus in data.bonusLevel1 %}
+    <li>{% markdown -%}
+      **{{ bonus.name }}**{{ 'Common.Colon'|l }} {{ bonus.text }}
+    {% endmarkdown %}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% if data.hitDie or data.resistanceBonusLevelUp or data.bonusLevelUp %}
+  <h2>{{ 'Class.BonusLevelUp'|l }}</h2>
+  <ul>
+    {% if data.hitDie %}<li>{% markdown -%}
+      **{{ 'Common.HitPoints'|l }}{{ 'Common.Colon'|l }}** {{ data.hitDie }}
+    {% endmarkdown %}</li>{% endif %}
+    {% if data.resistanceBonusLevelUp %}<li>{% markdown -%}
+      **{{ 'Class.ResistanceBonus'|l }}{{ 'Common.Colon'|l }}** {{ data.resistanceBonusLevelUp }}
+    {% endmarkdown %}</li>{% endif %}
+    {% for bonus in data.bonusLevelUp %}
+    <li>{% markdown -%}
+      **{{ bonus.name }}**{{ 'Common.Colon'|l }} {{ bonus.text }}
+    {% endmarkdown %}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% include "footer.html" %}
+</main>
+{% endblock %}

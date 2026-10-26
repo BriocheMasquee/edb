@@ -8,7 +8,7 @@
       "views": [
         {
           "type": "hStack",
-          "bgColor": "#284858F2",
+          "bgColor": "#284858",
           "padding": [2, 6],
           "views": [
             {
@@ -19,7 +19,7 @@
           ]
         },
         {
-          "style": "subtitle",
+          "style": "heading4",
           "value": "{{data.type | map: 'ItemType'}}"
         }
       ]
@@ -34,6 +34,7 @@
           "alignment": "top",
           "bgColor": "#AACACD40",
           "padding": [8, 10],
+          "visibleIf": "{% if data.price != nil and data.type != 'treasure' %}true{% elif data.encumbrance != nil %}true{% elif data.damage %}true{% elif data.protection != nil %}true{% elif data.usageDie and data.type != 'treasure' %}true{% endif %}",
           "views": [
             {
               "type": "vStack",
@@ -43,7 +44,7 @@
                 {
                   "type": "text",
                   "style": "stats",
-                  "value": "{% if data.price != nil %}**{{'Item.Price'|l}}{{'Common.Colon'|l}}** {{data.price}}{% endif %}"
+                  "value": "{% if data.price != nil and data.type != 'treasure' %}**{{'Item.Price'|l}}{{'Common.Colon'|l}}** {{data.price}}{% endif %}"
                 },
                 {
                   "type": "text",
@@ -70,7 +71,7 @@
                 {
                   "type": "text",
                   "style": "stats",
-                  "value": "{% if data.usageDie %}**{{'Common.UsageDie'|l}}{{'Common.Colon'|l}}** {{data.usageDie | map: 'DieType'}}{% endif %}"
+                  "value": "{% if data.usageDie and data.type != 'treasure' %}**{{'Common.UsageDie'|l}}{{'Common.Colon'|l}}** {{data.usageDie | map: 'DieType'}}{% endif %}"
                 }
               ]
             }
@@ -78,7 +79,7 @@
         },
         {
           "type": "text",
-          "value": "{% if descr %}{{descr}} ▪{% endif %}"
+          "value": "{{descr}}"
         }
       ]
     },

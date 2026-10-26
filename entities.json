@@ -17,6 +17,15 @@
     "loadable": true
   },
   {
+    "name": "Npc",
+    "label": "npc",
+    "extends": "Critter",
+    "collection": {
+      "label": "npcs"
+    },
+    "loadable": true
+  },
+  {
     "name": "Item",
     "label": "item",
     "collection": {

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="entity">
+  <header class="entity-header">
+    <h1 class="title">{{ name }}</h1>
+    <h4 class="kind">{{ 'Entity.Npc'|l }}</h4>
+  </header>
+  {% if data.number or data.level != nil or data.movement.speed or data.hp or data.protection %}
+  <div class="stats">
+    <div>
+      {% if data.number %}{% markdown -%}
+      **{{ 'Critter.Number'|l }}{{ 'Common.Colon'|l }}** {{ data.number }}
+      {% endmarkdown %}{% endif %}
+      {% if data.level != nil %}{% markdown -%}
+      **{{ 'Common.Level'|l }}{{ 'Common.Colon'|l }}** {{ data.level }}
+      {% endmarkdown %}{% endif %}
+      {% if data.movement.speed %}{% markdown -%}
+      **{{ 'Common.SpeedLike'|l }}{{ 'Common.Colon'|l }}** {% include "movement.md" data.movement %}
+      {% endmarkdown %}{% endif %}
+    </div>
+    <div>
+      {% if data.hp %}{% markdown -%}
+      **{{ 'Common.HitPoints'|l }}{{ 'Common.Colon'|l }}** {{ data.hp }}
+      {% endmarkdown %}{% endif %}
+      {% if data.protection %}{% markdown -%}
+      **{{ 'Common.Protection'|l }}{{ 'Common.Colon'|l }}** {{ data.protection }}
+      {% endmarkdown %}{% endif %}
+    </div>
+  </div>
+  {% endif %}
+  {% if descr %}<div class="description" data-page-content>{{ descr|md }}</div>{% endif %}
+  {% if data.abilities %}
+  <h2>{{ 'Critter.Abilities'|l }}</h2>
+  <ul>
+    {% for ability in data.abilities %}
+    <li>{% markdown -%}
+      **{{ ability.name }}**{{ 'Common.Colon'|l }} {{ ability.text }}
+    {% endmarkdown %}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% include "footer.html" %}
+</main>
+{% endblock %}

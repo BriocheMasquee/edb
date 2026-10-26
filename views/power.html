@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="entity">
+  <header class="entity-header">
+    <h1 class="title">{{ name }}</h1>
+    <h4 class="kind">{{ data.type | map: 'PowerType' }}</h4>
+  </header>
+  {% if descr %}<div class="description" data-page-content>{{ descr|md }}</div>{% endif %}
+  {% include "footer.html" %}
+</main>
+{% endblock %}

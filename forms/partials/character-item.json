@@ -65,7 +65,7 @@
         {
           "title": "Item.Quantity",
           "type": "number",
-          "visibleIf": "type == 'gear' or type == 'food'",
+          "visibleIf": "type == 'gear' or type == 'food' or type == 'treasure'",
           "attribute": "quantity"
         }
       ]

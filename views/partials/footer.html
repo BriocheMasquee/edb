@@ -1,0 +1,13 @@
+{% if image %}
+<div class="entity-image">
+  <a href="{{ image|resolvePath }}"><img src="{{ image|resolvePath }}" alt="{{ name }}"></a>
+</div>
+{% endif %}
+<footer class="entity-footer">
+  <hr>
+  <div class="source">
+    {% markdown -%}
+    {{ sourceFormatted }}
+    {% endmarkdown %}
+  </div>
+</footer>

@@ -54,6 +54,42 @@
       }
     ]
   },
+  "Npc": {
+    "params": [
+      {
+        "attribute": "sources.name",
+        "title": "Common.Source",
+        "dynamic": true
+      }
+    ],
+    "group": [
+      {
+        "attribute": "data.level",
+        "title": "Common.Level",
+        "text": "{{'Common.Level'|l}} {{value}}"
+      },
+      {
+        "attribute": "name",
+        "title": "Common.Name"
+      }
+    ],
+    "sort": [
+      {
+        "attribute": "name",
+        "title": "Common.Name"
+      },
+      {
+        "attribute": "data.level",
+        "title": "Common.Level",
+        "text": "{{'Common.Level'|l}} {{value}}"
+      },
+      {
+        "attribute": "data.movement.speed",
+        "attributeType": "SpeedType",
+        "title": "Common.Speed"
+      }
+    ]
+  },
   "Item": {
     "params": [
       {

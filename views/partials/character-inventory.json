@@ -8,7 +8,7 @@
       "padding": [2, 8],
       "views": [
         {
-          "style": "subtitle",
+          "style": "bandHeading",
           "width": -1,
           "value": "{{'Character.Currency'|l}}"
         }
@@ -87,7 +87,7 @@
       "padding": [2, 8],
       "views": [
         {
-          "style": "subtitle",
+          "style": "bandHeading",
           "width": -1,
           "value": "{{'Character.GroupWeaponsArmor'|l}}"
         }
@@ -115,7 +115,7 @@
       "padding": [2, 8],
       "views": [
         {
-          "style": "subtitle",
+          "style": "bandHeading",
           "value": "{{'Character.GroupGear'|l}}"
         },
         {
@@ -150,7 +150,7 @@
       "padding": [2, 8],
       "views": [
         {
-          "style": "subtitle",
+          "style": "bandHeading",
           "value": "{{'Character.GroupProvisions'|l}}"
         },
         {

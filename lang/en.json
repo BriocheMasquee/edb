@@ -62,9 +62,11 @@
   "Common.HP": "HP",
   "Common.HitPoints": "Hit Points",
   "Common.Language": "Language",
+  "Common.LanguageCode": "en",
   "Common.Level": "Level",
   "Common.Locale": "Locale",
   "Common.Name": "Name",
+  "Common.Notes": "Notes",
   "Common.Protection": "Protection",
   "Common.Reference": "Reference",
   "Common.Source": "Source",
@@ -101,6 +103,8 @@
   "Entity.Table.many": "Tables",
   "Entity.Character": "Exploiteer",
   "Entity.Character.many": "Exploiteers",
+  "Entity.Npc": "NPC",
+  "Entity.Npc.many": "NPCs",
   "ImageType.Icon": "Icon",
   "ImageType.Image": "Image",
   "ImageType.Token": "Token",
@@ -120,6 +124,7 @@
   "ItemType.Treasure": "Treasure",
   "ItemType.Weapon": "Weapon",
   "Power.Type": "Power Type",
+  "Power.Prepared": "Prep.",
   "Power.Used": "Used",
   "PowerType.Grossness": "Gross-outs",
   "PowerType.Tale": "True Tales",
@@ -146,5 +151,6 @@
   "SpeedType.Dog": "a dog",
   "SpeedType.Horse": "a horse",
   "SpeedType.Kiddo": "a kiddo",
-  "SpeedType.Turtle": "a turtle"
+  "SpeedType.Turtle": "a turtle",
+  "Table.Roll": "Roll"
 }

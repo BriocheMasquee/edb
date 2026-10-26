@@ -1,17 +1,17 @@
 {
-  "tintColor": "#284858",
-  "primaryColor": "#488898",
-  "textColor": "#1c1414",
+  "tintColor": "#267890",
+  "primaryColor": "#267890",
+  "textColor": "#242422",
   "dividerColor": "#AACACD",
   "bgColor": "#f8f8f8",
   "bgImage": "/images/paper.png",
   "checkboxStyles": {
     "default": {
-      "tintColor": "#488898",
+      "tintColor": "#267890",
       "icon": "square"
     },
     "checked": {
-      "primaryColor": "#488898",
+      "primaryColor": "#267890",
       "tintColor": "#284858",
       "icon": "square.inset.filled"
     }
@@ -19,11 +19,11 @@
   "dividerStyles": {
     "default": {
       "shape": "rectangle",
-      "color": "#488898"
+      "color": "#267890"
     },
     "rectangle": {
       "shape": "rectangle",
-      "color": "#488898"
+      "color": "#267890"
     }
   },
   "tableStyles": {
@@ -31,7 +31,7 @@
       "head": {
         "font": "Oswald-SemiBold",
         "color": "#ffffff",
-        "bgColor": "#284858F2",
+        "bgColor": "#284858",
         "case": "uppercase",
         "size": 14
       },
@@ -45,38 +45,38 @@
   },
   "buttonStyles": {
     "default": {
-      "color": "#385868",
+      "color": "#284858",
       "bgColor": "#00000000",
       "cornerRadius": 0,
       "body": {
         "font": "Oswald-SemiBold",
-        "color": "#385868",
+        "color": "#284858",
         "case": "uppercase",
         "size": 12
       }
     },
     "rollButton": {
-      "color": "#488898",
+      "color": "#267890",
       "bgColor": "#00000000",
-      "borderColor": "#488898",
+      "borderColor": "#267890",
       "borderWidth": 1,
       "cornerRadius": 4,
       "body": {
         "font": "Oswald-SemiBold",
-        "color": "#488898",
+        "color": "#267890",
         "case": "uppercase",
         "alignment": "center",
         "size": 10
       }
     },
     "wearButton": {
-      "color": "#488898",
+      "color": "#267890",
       "bgColor": "#00000000",
       "cornerRadius": 0,
       "padding": [0, 0],
       "body": {
         "font": "Oswald-SemiBold",
-        "color": "#488898",
+        "color": "#267890",
         "case": "uppercase",
         "alignment": "center",
         "size": 10
@@ -97,7 +97,9 @@
   "textStyles": {
     "body": {
       "font": "Merriweather24pt-Regular",
-      "size": 13
+      "size": 13,
+      "lineSpacing": 3.5,
+      "paragraphSpacing": 12
     },
     "title": {
       "font": "CoveredByYourGrace",
@@ -109,15 +111,9 @@
       "color": "#ffffff",
       "size": 25
     },
-    "subtitle": {
-      "font": "Oswald-SemiBold",
-      "color": "#385868",
-      "case": "uppercase",
-      "size": 14
-    },
     "source": {
       "font": "Oswald-Light",
-      "color": "#385868",
+      "color": "#284858",
       "size": 12
     },
     "stats": {
@@ -126,7 +122,7 @@
     },
     "bullet": {
       "font": "Merriweather24pt-Regular",
-      "color": "#488898",
+      "color": "#267890",
       "size": 13
     },
     "hpLabel": {
@@ -137,7 +133,7 @@
     },
     "hpValue": {
       "font": "Oswald-SemiBold",
-      "color": "#488898",
+      "color": "#267890",
       "alignment": "center",
       "size": 16
     },
@@ -180,14 +176,14 @@
     },
     "rollBoxText": {
       "font": "Oswald-SemiBold",
-      "color": "#488898",
+      "color": "#267890",
       "alignment": "center",
       "case": "uppercase",
       "size": 10
     },
     "skillTitle": {
       "font": "Merriweather24pt-Bold",
-      "color": "#1c1414",
+      "color": "#242422",
       "size": 13
     },
     "resName": {
@@ -200,25 +196,48 @@
       "size": 13
     },
     "heading1": {
-      "font": "Oswald-SemiBold",
-      "color": "#385868",
-      "bgColor": "#AACACD40",
+      "font": "CoveredByYourGrace",
+      "color": "#ffffff",
+      "bgColor": "#284858",
       "padding": [2, 8],
-      "case": "uppercase",
-      "size": 14
+      "size": 25
     },
     "heading2": {
       "font": "Oswald-SemiBold",
-      "color": "#385868",
+      "color": "#284858",
+      "bgColor": "#AACACD40",
+      "padding": [2, 8],
       "case": "uppercase",
-      "size": 13
+      "size": 16
+    },
+    "bandHeading": {
+      "font": "Oswald-SemiBold",
+      "color": "#284858",
+      "case": "uppercase",
+      "size": 16
     },
     "heading3": {
       "font": "Oswald-SemiBold",
-      "color": "#385868",
+      "color": "#284858",
       "case": "uppercase",
-      "size": 12,
+      "size": 16,
       "divider": true
+    },
+    "heading4": {
+      "font": "Oswald-SemiBold",
+      "color": "#284858",
+      "case": "uppercase",
+      "size": 14
+    },
+    "heading5": {
+      "font": "Merriweather24pt-Italic",
+      "color": "#6b7b83",
+      "size": 13
+    },
+    "heading6": {
+      "font": "CoveredByYourGrace",
+      "color": "#284858",
+      "size": 22
     }
   }
 }

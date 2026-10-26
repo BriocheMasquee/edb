@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="{{ 'Common.LanguageCode'|l }}" data-entity-id="{{ id }}" data-kind="{% block kind %}{{ kind }}{% endblock %}"{% if type %} data-type="{{ type }}"{% endif %}{% if env.theme %} data-view-theme="{{ env.theme }}"{% endif %}>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>{{ name }}</title>
+    <link href="{{ env.systemURL|default: '/' }}styles/default.css" rel="stylesheet" type="text/css">
+    {% for href in env.styles %}<link href="{{ href }}" rel="stylesheet" type="text/css">{% endfor %}
+  </head>
+  <body>
+    {% block content %}{% endblock %}
+    {% if descr %}
+    <script id="page-markdown" type="application/json">{{ descr|jsonScript }}</script>
+    <script id="page-labels" type="application/json">{{ env.entityLabels|jsonScript }}</script>
+    <script src="/_app/js/markdown-it.min.js"></script>
+    <script src="/_app/js/markdown-it-plugins.min.js"></script>
+    <script src="/_app/js/page.js"></script>
+    {% endif %}
+    <script>
+      (function () {
+        var main = document.querySelector('main');
+        if (!main) {
+          return;
+        }
+
+        /* Surlignage : ==texte== devient <mark>texte</mark>, même autour de gras, d'italiques ou de liens.
+           Le surlignage ne traverse pas un retour à la ligne : chaque ligne porte ses propres == */
+        function marks() {
+          var SKIP = /^(CODE|PRE|SCRIPT|STYLE|MARK)$/;
+          var BLOCKS = 'p, li, td, th, dt, dd, h1, h2, h3, h4, h5, h6, figcaption';
+          var PATTERN = /==([^=\n][^\n]*?)==/;
+
+          function ownBlock(node) {
+            for (var p = node.parentNode; p; p = p.parentNode) {
+              if (p.nodeType === 1 && p.matches && p.matches(BLOCKS)) {
+                return p;
+              }
+            }
+            return null;
+          }
+
+          function flatten(block) {
+            var parts = [];
+            var text = '';
+            var walker = document.createTreeWalker(block, NodeFilter.SHOW_ALL, null);
+            while (walker.nextNode()) {
+              var n = walker.currentNode;
+              if (n.nodeType === 3) {
+                if (ownBlock(n) !== block) {
+                  continue;
+                }
+                var skipped = false;
+                for (var p = n.parentNode; p && p !== block; p = p.parentNode) {
+                  if (SKIP.test(p.nodeName)) {
+                    skipped = true;
+                  }
+                }
+                if (skipped) {
+                  text += new Array(n.nodeValue.length + 1).join('\u0000');
+                } else {
+                  text += n.nodeValue;
+                }
+                parts.push({ node: n, start: text.length - n.nodeValue.length, end: text.length });
+              } else if (n.nodeName === 'BR') {
+                text += '\n';
+              }
+            }
+            return { text: text, parts: parts };
+          }
+
+          function locate(parts, index, isEnd) {
+            for (var i = 0; i < parts.length; i++) {
+              var part = parts[i];
+              if (isEnd ? (index > part.start && index <= part.end) : (index >= part.start && index < part.end)) {
+                return { node: part.node, offset: index - part.start };
+              }
+            }
+            return null;
+          }
+
+          Array.prototype.slice.call(document.querySelectorAll(BLOCKS)).forEach(function (block) {
+            if (block.textContent.indexOf('==') < 0) {
+              return;
+            }
+            for (var guard = 0; guard < 50; guard++) {
+              var flat = flatten(block);
+              var match = PATTERN.exec(flat.text);
+              if (!match) {
+                break;
+              }
+              var from = locate(flat.parts, match.index, false);
+              var to = locate(flat.parts, match.index + match[0].length, true);
+              if (!from || !to) {
+                break;
+              }
+              var range = document.createRange();
+              range.setStart(from.node, from.offset);
+              range.setEnd(to.node, to.offset);
+              var mark = document.createElement('mark');
+              mark.appendChild(range.extractContents());
+              range.insertNode(mark);
+              /* retire les deux == qui entourent le contenu */
+              var first = document.createTreeWalker(mark, NodeFilter.SHOW_TEXT, null);
+              var firstText = first.nextNode();
+              if (firstText) {
+                firstText.nodeValue = firstText.nodeValue.replace(/^==/, '');
+              }
+              var lastText = null;
+              var all = document.createTreeWalker(mark, NodeFilter.SHOW_TEXT, null);
+              while (all.nextNode()) {
+                lastText = all.currentNode;
+              }
+              if (lastText) {
+                lastText.nodeValue = lastText.nodeValue.replace(/==$/, '');
+              }
+            }
+          });
+        }
+
+        /* Légendes : une image avec un titre ![alt](url "Légende") devient une figure */
+        function captions() {
+          Array.prototype.slice.call(main.querySelectorAll('img[title]')).forEach(function (img) {
+            if (img.closest('figure, .entity-image')) {
+              return;
+            }
+            var title = img.getAttribute('title');
+            if (!title) {
+              return;
+            }
+            var anchor = img.parentNode.tagName === 'A' ? img.parentNode : img;
+            var host = anchor.parentNode;
+            var alone = host.tagName === 'P' && host.textContent.trim() === '';
+            var figure = document.createElement('figure');
+            var caption = document.createElement('figcaption');
+            caption.textContent = title;
+            img.removeAttribute('title');
+            (alone ? host : anchor).parentNode.replaceChild(figure, alone ? host : anchor);
+            figure.appendChild(anchor);
+            figure.appendChild(caption);
+            if (img.classList.contains('size-cover')) {
+              figure.classList.add('size-cover');
+            }
+          });
+        }
+
+        /* Les fourchettes comme « 1-3 » ne sont pas des jets : on retire leur lien de dé */
+        function flatRolls() {
+          Array.prototype.slice.call(main.querySelectorAll('a[href^="/roll/"]')).forEach(function (link) {
+            var formula = decodeURIComponent(link.getAttribute('href').slice('/roll/'.length));
+            if (!/d/i.test(formula)) {
+              link.parentNode.replaceChild(document.createTextNode(link.textContent), link);
+            }
+          });
+        }
+
+        function run() {
+          captions();
+          marks();
+          flatRolls();
+        }
+
+        run();
+        document.addEventListener('DOMContentLoaded', run);
+        window.addEventListener('load', run);
+      })();
+    </script>
+    {% for src in env.scripts %}<script src="{{ src }}"></script>{% endfor %}
+  </body>
+</html>

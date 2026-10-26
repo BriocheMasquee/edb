@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="entity">
+  <header class="entity-header">
+    <h1 class="title">{{ name }}</h1>
+    <h4 class="kind">{{ data.type | map: 'ItemType' }}</h4>
+  </header>
+  {% if data.price != nil and data.type != 'treasure' or data.encumbrance != nil or data.damage or data.protection != nil or data.usageDie and data.type != 'treasure' %}
+  <div class="stats">
+    <div>
+      {% if data.price != nil and data.type != 'treasure' %}{% markdown -%}
+      **{{ 'Item.Price'|l }}{{ 'Common.Colon'|l }}** {{ data.price }}
+      {% endmarkdown %}{% endif %}
+      {% if data.encumbrance != nil %}{% markdown -%}
+      **{{ 'Item.Encumbrance'|l }}{{ 'Common.Colon'|l }}** {{ data.encumbrance }}
+      {% endmarkdown %}{% endif %}
+    </div>
+    <div>
+      {% if data.damage %}{% markdown -%}
+      **{{ 'Common.Damages'|l }}{{ 'Common.Colon'|l }}** {{ data.damage }}
+      {% endmarkdown %}{% endif %}
+      {% if data.protection != nil %}{% markdown -%}
+      **{{ 'Common.Protection'|l }}{{ 'Common.Colon'|l }}** {{ data.protection }}
+      {% endmarkdown %}{% endif %}
+      {% if data.usageDie and data.type != 'treasure' %}{% markdown -%}
+      **{{ 'Common.UsageDie'|l }}{{ 'Common.Colon'|l }}** {{ data.usageDie | map: 'DieType' }}
+      {% endmarkdown %}{% endif %}
+    </div>
+  </div>
+  {% endif %}
+  {% if descr %}<div class="description" data-page-content>{{ descr|md }}</div>{% endif %}
+  {% include "footer.html" %}
+</main>
+{% endblock %}

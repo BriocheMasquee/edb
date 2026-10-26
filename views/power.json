@@ -8,7 +8,7 @@
       "views": [
         {
           "type": "hStack",
-          "bgColor": "#284858F2",
+          "bgColor": "#284858",
           "padding": [2, 6],
           "views": [
             {
@@ -19,14 +19,14 @@
           ]
         },
         {
-          "style": "subtitle",
+          "style": "heading4",
           "value": "{{data.type | map: 'PowerType'}}"
         }
       ]
     },
     {
       "type": "text",
-      "value": "{% if descr %}{{descr}} ▪{% endif %}"
+      "value": "{{descr}}"
     },
     {
       "type": "image",

@@ -1,0 +1,735 @@
+/*
+ Exploirateurs de bruines (LDB) : style des pages du module
+ ----------------
+ Point de départ : default.css d'Encounter+ (feuille de base des pages). Ce fichier le remplace
+ entièrement (styles/page.css) : il doit donc tout styler. Charte : voir le système edb
+ (bandeau #284858, Oswald en intertitres, Merriweather en corps, Covered By Your Grace en titres).
+ Chemins relatifs à ce fichier : ../fonts/ et ../images/.
+ */
+
+@font-face {
+  font-family: 'Covered By Your Grace';
+  src: url('../fonts/CoveredByYourGrace.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url('../fonts/Merriweather24pt-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url('../fonts/Merriweather24pt-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url('../fonts/Merriweather24pt-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url('../fonts/Merriweather24pt-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Oswald';
+  src: url('../fonts/Oswald-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Oswald';
+  src: url('../fonts/Oswald-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Oswald';
+  src: url('../fonts/Oswald-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Oswald';
+  src: url('../fonts/Oswald-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation. Follow Dynamic Type: EntityWebViewController sets --font-scale on <html>
+   when the user's text size differs from the default; elsewhere (web client) it is unset and the scale
+   stays 1. The root colour follows the interface, see the dark-mode note below */
+html {
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  font-size: calc(100% * var(--font-scale, 1));
+  background-color: var(--color-root);
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, h5, h6, p,
+figure, blockquote, dl, dd {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4, h5, h6,
+button, input, label {
+  line-height: 1.15;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* Theme: every colour and face is a token, so container CSS (styles/custom.css) can restyle the
+   page by overriding these on :root rather than restating rules. Light only, like a printed page:
+   the parchment stays light in a dark interface too */
+:root {
+  color-scheme: light;
+
+  --font-body: 'Merriweather', ui-serif, Georgia, serif;
+  --font-heading: 'Covered By Your Grace', cursive;
+  --font-ui: 'Oswald', system-ui, -apple-system, sans-serif;
+
+  /* The space between the view's edges and its content */
+  --page-gutter: 1.25rem;
+
+  --color-text: var(--c-noir);
+  --color-column: var(--c-gris);
+  --color-background: #f8f8f8;
+  --color-root: #f8f8f8;
+  --color-accent: #284858;
+  --color-on-accent: #ffffff;
+  --color-rule: var(--c-acier);
+  --rule-tapered: linear-gradient(var(--color-rule), var(--color-rule));
+  --color-stripe: color-mix(in srgb, var(--c-brume) 25%, transparent);
+  --color-note: color-mix(in srgb, var(--c-brume) 25%, transparent);
+  --color-mark: var(--c-brume);
+
+  /* Palette des variantes : une classe de couleur (`{.acier}`...) pose --tone, --on-tone, --tone-title
+     et --tone-mix. Trois familles de teintes : sombre (texte blanc), clair (texte noir), pâle */
+  --c-acier: #267890;
+  --c-brume: #AACACD;
+  --c-ardoise: #284858;
+  --c-noir: #242422;
+  --c-gris: #6b7b83;
+  --c-creme: #ece7d7;
+  --c-sable: #dfd7aa;
+  --c-olive: #bab685;
+  --c-rouge: #6b2322;
+  --c-carmin: #B3261E;
+  --c-rouge-pale: #ebc2ba;
+  --c-vert: #2f5a3c;
+  --c-vert-clair: #6fa67b;
+  --c-vert-pale: #b9d6b8;
+  --c-violet: #4b2d5f;
+  --c-violet-clair: #9c76b5;
+  --c-violet-pale: #d2c0e0;
+}
+
+/* The root follows the interface: the web view draws its under-page area (behind the navigation
+   bar, past the scroll ends) in the document's colour, so it stays dark under a dark bar's white
+   title. WebKit takes that colour from the html and body background *colours*, body on top, and
+   ignores images — so body keeps a transparent colour and paints its parchment as image layers */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-root: #252525;
+  }
+}
+
+/* Pages sit on the parchment grain legacy pages use */
+body {
+  color: var(--color-text);
+  background-color: transparent;
+  background-image: url('../images/paper.png'), linear-gradient(var(--color-background), var(--color-background));
+  background-blend-mode: normal;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  line-height: 1.53;
+  padding: 0;
+  margin: 0;
+}
+
+main,
+#page {
+  padding: var(--page-gutter) var(--page-gutter) 2rem;
+}
+
+/* Prose */
+p {
+  margin-block-end: 0.75rem;
+}
+
+ul, ol {
+  margin-block: 0 0.75rem;
+  padding-inline-start: 1.5rem;
+}
+
+li + li,
+li > ul,
+li > ol {
+  margin-block-start: 0.2rem;
+}
+
+li > ul,
+li > ol {
+  margin-block-end: 0;
+}
+
+/* Puces, comme le style `bullet` du système : carré ▪ de la couleur des filets (acier) */
+ul {
+  list-style-type: '▪\00a0\00a0';
+}
+
+li::marker {
+  color: var(--color-rule);
+}
+
+/* Headings, mêmes valeurs que heading1 à heading6 du thème du système :
+   H1 = bandeau ardoise opaque (manuscrit blanc, 25) ; H2 = Oswald 16 sur fond bleuté ;
+   H3 = Oswald 16 + filet ; H4 = Oswald 14 ; H5 = Merriweather italique gris, 13 ;
+   H6 = titre manuscrit bleu, 22 */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-block-end: 0.5rem;
+}
+
+:is(h2, h3, h4, h5, h6):not(:first-child) {
+  margin-block-start: 1.25em;
+}
+
+h1 {
+  margin-block-end: 0.75rem;
+  padding: 0.125rem 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 1.5625rem;
+  font-weight: normal;
+  text-transform: none;
+  color: var(--on-tone, var(--color-on-accent));
+  background-color: var(--tone, var(--color-accent));
+}
+
+h2 {
+  padding: 0.125rem 0.5rem;
+  font-size: 1rem;
+  background-color: var(--color-stripe);
+}
+
+h3 {
+  padding-block-end: 0.125rem;
+  font-size: 1rem;
+  border-block-end: 0.125rem solid var(--color-rule);
+}
+
+h4 {
+  font-size: 0.875rem;
+}
+
+h5 {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-style: italic;
+  font-weight: normal;
+  text-transform: none;
+  color: var(--color-column);
+}
+
+h6 {
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  font-weight: normal;
+  text-transform: none;
+  color: var(--color-accent);
+}
+
+/* Links: library references are what pages mostly link to, so they stand out like the
+   bold entity names of a rulebook rather than underlined web links */
+a {
+  color: var(--c-acier);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Dice, as the app's Markdown renderer and page.js link them (`/roll/<formula>`) */
+a[href^="/roll/"] {
+  white-space: nowrap;
+  text-decoration: underline dotted;
+  text-underline-offset: 0.2em;
+}
+
+mark {
+  color: inherit;
+  background-color: var(--color-mark);
+  padding-inline: 0.15em;
+}
+
+/* Horizontal rules taper out like a stat block's */
+hr {
+  height: 0.125rem;
+  margin-block: 1.25rem;
+  border: 0;
+  background: var(--rule-tapered);
+}
+
+/* Images */
+figure {
+  margin-block: 0 1rem;
+  margin-inline: 0;
+}
+
+figcaption {
+  margin-block-start: 0.375rem;
+  font-size: 0.875em;
+  font-style: italic;
+  text-align: center;
+  color: var(--color-accent);
+}
+
+/* Cover images, `{.size-cover}` on an image or class="size-cover" on an img or figure, as in
+   global.css: edge to edge across the view's gutters, and up to its top edge when the page opens
+   with one. A Markdown image sits in a paragraph, and in the a.image-link page.js wraps it in */
+img.size-cover,
+figure.size-cover {
+  max-width: none;
+  width: calc(100% + 2 * var(--page-gutter));
+  height: auto;
+  margin-inline: calc(-1 * var(--page-gutter));
+  margin-block-end: var(--page-gutter);
+}
+
+:is(main, #page) > .size-cover:first-child,
+:is(main, #page) > p:first-child > img.size-cover:first-child,
+:is(main, #page) > p:first-child > a:first-child > img.size-cover:first-child {
+  margin-block-start: calc(-1 * var(--page-gutter));
+}
+
+/* Centrage, `{.center}` : une image (avec une largeur, `{.center width=300}`) ou un paragraphe */
+img.center,
+figure.center {
+  margin-inline: auto;
+}
+
+p.center,
+div.center {
+  text-align: center;
+}
+
+/* Citation, Markdown `>` : ardoise noire des pages de garde, texte Oswald blanc aligné à gauche,
+   titre doré, paragraphes séparés par un filet pointillé */
+blockquote {
+  margin-block: 1.25rem;
+  margin-inline: 0;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-ui);
+  font-weight: 400;
+  color: var(--on-tone, var(--color-on-accent));
+  background-color: var(--tone, var(--c-noir));
+}
+
+blockquote :is(h1, h2, h3, h4, h5, h6) {
+  margin-block: 0 0.5rem;
+  padding: 0;
+  font-family: var(--font-ui);
+  font-size: 0.8125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--tone-title, var(--c-sable));
+  background: none;
+  border: 0;
+}
+
+blockquote strong {
+  font-weight: 700;
+  color: var(--tone-title, var(--c-sable));
+}
+
+blockquote p + p {
+  margin-block-start: 0.75rem;
+  padding-block-start: 0.75rem;
+  border-block-start: 0.0625rem dotted currentColor;
+}
+
+blockquote a {
+  color: inherit;
+}
+
+blockquote > :last-child {
+  margin-block-end: 0;
+}
+
+/* Texte à lire à voix haute, `{.read}` sous une citation ou bloc `::: read` : bloc bleuté clair,
+   filet bleu sur le côté, texte du corps */
+blockquote.read,
+div.read {
+  margin-block: 1.25rem;
+  margin-inline: 0;
+  padding: 0.5rem 1rem;
+  font-family: var(--font-body);
+  font-weight: normal;
+  text-align: start;
+  color: var(--color-text);
+  background-color: var(--color-note);
+  border-inline-start: 0.25rem solid var(--tone, var(--color-rule));
+}
+
+blockquote.read p + p {
+  margin-block-start: 0;
+  padding-block-start: 0;
+  border-block-start: 0;
+}
+
+div.read > :last-child {
+  margin-block-end: 0;
+}
+
+/* `{.read}` en couleur : le fond est un dérivé clair de la teinte (ignoré si color-mix n'existe pas) */
+:is(blockquote.read, div.read):is(.acier, .ardoise, .noir, .gris, .brume, .creme, .sable, .olive, .rouge, .carmin, .rouge-pale, .vert, .vert-clair, .vert-pale, .violet, .violet-clair, .violet-pale) {
+  background-color: color-mix(in srgb, var(--tone) var(--tone-mix, 12%), transparent);
+}
+
+/* Variantes de couleur, à ajouter en plus de la classe d'un élément : `{.acier}` après un titre H1, une
+   citation, un encart, un `{.read}` ou un tableau (ligne vide avant l'accolade pour un tableau).
+   Sombres : texte blanc, titre sable. Claires et pâles : texte noir, titre noir */
+.acier, .ardoise, .noir, .gris, .carmin, .rouge, .vert, .violet {
+  --on-tone: #ffffff;
+  --tone-title: var(--c-sable);
+  --tone-mix: 12%;
+}
+
+.vert-clair, .violet-clair {
+  --on-tone: var(--c-noir);
+  --tone-title: var(--c-noir);
+  --tone-mix: 25%;
+}
+
+.creme, .sable, .olive, .brume, .rouge-pale, .vert-pale, .violet-pale {
+  --on-tone: var(--c-noir);
+  --tone-title: var(--c-noir);
+  --tone-mix: 45%;
+}
+
+.acier { --tone: var(--c-acier); --tone-text: var(--c-ardoise); --tone-stripe: color-mix(in srgb, var(--c-brume) 25%, transparent); }
+.ardoise { --tone: var(--c-ardoise); --tone-text: var(--c-acier); --tone-stripe: color-mix(in srgb, var(--c-brume) 25%, transparent); }
+.gris { --tone: var(--c-gris); --tone-text: var(--c-noir); --tone-stripe: color-mix(in srgb, var(--c-gris) 18%, transparent); }
+.noir { --tone: var(--c-noir); --tone-text: var(--c-gris); --tone-stripe: color-mix(in srgb, var(--c-gris) 18%, transparent); }
+.brume { --tone: var(--c-brume); --tone-text: var(--c-noir); --tone-stripe: color-mix(in srgb, var(--c-brume) 25%, transparent); }
+.creme { --tone: var(--c-creme); --tone-text: var(--c-noir); --tone-stripe: color-mix(in srgb, var(--c-creme) 60%, transparent); }
+.sable { --tone: var(--c-sable); --tone-text: var(--c-noir); --tone-stripe: color-mix(in srgb, var(--c-creme) 60%, transparent); }
+.olive { --tone: var(--c-olive); --tone-text: var(--c-noir); --tone-stripe: color-mix(in srgb, var(--c-creme) 60%, transparent); }
+.rouge { --tone: var(--c-rouge); --tone-text: var(--c-carmin); --tone-stripe: color-mix(in srgb, var(--c-rouge-pale) 35%, transparent); }
+.carmin { --tone: var(--c-carmin); --tone-text: var(--c-rouge); --tone-stripe: color-mix(in srgb, var(--c-rouge-pale) 35%, transparent); }
+.rouge-pale { --tone: var(--c-rouge-pale); --tone-text: var(--c-noir); --tone-stripe: color-mix(in srgb, var(--c-rouge-pale) 35%, transparent); }
+.vert { --tone: var(--c-vert); --tone-text: var(--c-noir); --tone-stripe: color-mix(in srgb, var(--c-vert-pale) 35%, transparent); }
+.vert-clair { --tone: var(--c-vert-clair); --tone-text: var(--c-vert); --tone-stripe: color-mix(in srgb, var(--c-vert-pale) 35%, transparent); }
+.vert-pale { --tone: var(--c-vert-pale); --tone-text: var(--c-noir); --tone-stripe: color-mix(in srgb, var(--c-vert-pale) 35%, transparent); }
+.violet { --tone: var(--c-violet); --tone-text: var(--c-noir); --tone-stripe: color-mix(in srgb, var(--c-violet-pale) 35%, transparent); }
+.violet-clair { --tone: var(--c-violet-clair); --tone-text: var(--c-violet); --tone-stripe: color-mix(in srgb, var(--c-violet-pale) 35%, transparent); }
+.violet-pale { --tone: var(--c-violet-pale); --tone-text: var(--c-noir); --tone-stripe: color-mix(in srgb, var(--c-violet-pale) 35%, transparent); }
+
+/* Fin de texte, `{.end}` sous un paragraphe, ou en fin de ligne du dernier point d'une liste : carré noir final, comme les descriptions du système */
+:is(p, li).end::after {
+  content: '\00a0▪';
+}
+
+/* Encart, `::: sidebar` ou <aside> : deux barres de 6 de la teinte, titre Oswald 15 en majuscules de la teinte,
+   texte Oswald 13 en graisse 400 de la couleur associée à la teinte (--tone-text, voir les classes de
+   couleur : ardoise <-> acier, rouge <-> carmin, vert clair -> vert, violet clair -> violet, noir -> gris,
+   les autres en noir), mots en gras de la teinte */
+div.sidebar,
+aside {
+  margin-block: 1.25rem;
+  padding: 0.5rem 0;
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 1em;
+  color: var(--tone-text, var(--c-acier));
+  border-block: 0.375rem solid var(--tone, var(--color-accent));
+}
+
+:is(div.sidebar, aside) :is(h1, h2, h3, h4, h5, h6) {
+  margin-block: 0 0.25rem;
+  padding: 0;
+  font-family: var(--font-ui);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--tone, var(--color-accent));
+  background: none;
+  border: 0;
+}
+
+:is(div.sidebar, aside) :is(strong, b) {
+  color: var(--tone, var(--color-accent));
+}
+
+:is(div.sidebar, aside) > :last-child {
+  margin-block-end: 0;
+}
+
+/* Tables: sans-serif and striped, as in the rulebooks. They scroll sideways rather than widen the
+   page; page.js wraps every Markdown table without a class of its own, and HTML pages opt in with
+   the same wrapper, as in Bootstrap */
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  margin-block: 0.5rem 1.25rem;
+}
+
+table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin-block: 0.5rem 1.25rem;
+  font-family: var(--font-ui);
+  font-size: 1.075em;
+  line-height: 1.3;
+  width: 100%;
+}
+
+.table-responsive > table {
+  margin-block: 0;
+}
+
+th, td {
+  padding: 0.3125rem 0.5rem;
+  vertical-align: top;
+  overflow-wrap: break-word;
+}
+
+/* Colonnes de largeur égale ; `{.de}` (ligne vide avant l'accolade) réduit la première colonne, pour les
+   tables aléatoires dont elle ne porte que le dé et la fourchette (d6, 1-3). Dans les vues de table du système,
+   toutes les tables aléatoires ont le dé en première colonne : elle est toujours étroite. */
+table.de :is(th, td):first-child,
+[data-kind="table"] table :is(th, td):first-child {
+  width: 4.5rem;
+}
+
+th {
+  font-weight: 600;
+  text-align: start;
+  text-transform: uppercase;
+  vertical-align: middle;
+  color: var(--on-tone, var(--color-on-accent));
+  background-color: var(--tone, var(--color-accent));
+}
+
+/* Lignes alternées, comme `rowStyle: odd` du système : brume à 25 % une ligne sur deux ; sur un tableau à
+   en-tête de couleur, la version pâle (ou brume) de la teinte, un gris léger pour les tableaux noirs et gris, voir --tone-stripe des classes de couleur */
+tbody tr:nth-child(odd) > td {
+  background-color: var(--tone-stripe, var(--color-stripe));
+}
+
+/* Un dé dans un en-tête (D6, D100…) garde la couleur de l'en-tête */
+th a {
+  color: inherit;
+}
+
+th > :last-child,
+td > :last-child {
+  margin-block-end: 0;
+}
+
+/* Footnotes, Markdown `[^1]` and `^[note]`, as page.js's markdown-it-footnote writes them */
+sup.footnote-ref {
+  line-height: 0;
+}
+
+.footnote-ref a,
+.footnote-backref {
+  text-decoration: none;
+}
+
+.footnotes-sep {
+  height: 0.0625rem;
+  margin-block: 1.5rem 1rem;
+  background: var(--color-rule);
+}
+
+.footnotes {
+  font-size: 0.875em;
+  color: var(--color-accent);
+}
+
+.footnotes-list p {
+  margin-block-end: 0.25rem;
+}
+
+/* Table views (table.html); the grid is the app's `<table class="table">`, cells aligned inline */
+/* En-tête d'une table : bandeau de titre sur toute la largeur (le h1), puis le sous-titre « Table » à gauche
+   et le bouton de lancer à droite, sans filet sous le titre */
+[data-kind="table"] .table-header {
+  margin-block-end: 0.75rem;
+}
+
+[data-kind="table"] .table-header .title {
+  margin-block-end: 0.25rem;
+}
+
+[data-kind="table"] .table-sub {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+[data-kind="table"] .table-kind {
+  margin: 0;
+}
+
+/* Bouton de lancer, comme `rollButton` du système : contour acier de 1, coins de 4, Oswald 10 majuscules */
+[data-kind="table"] .table-roll {
+  flex: none;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--c-acier);
+  border-radius: 4px;
+  color: var(--c-acier);
+  background-color: transparent;
+  font-family: var(--font-ui);
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Vues d'entités (modèles HTML du système) : bandeau de titre (icône éventuelle à droite), sous-titre,
+   cadre de caractéristiques sur deux colonnes, listes, image, filet et ligne de source */
+.entity-header {
+  margin-block-end: 0.75rem;
+}
+
+.entity-header > h1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-block-end: 0.25rem;
+}
+
+.entity-header > h1 > img {
+  flex: none;
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.entity-header > .kind {
+  margin: 0;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 0.75rem;
+  align-items: start;
+  margin-block-end: 1rem;
+  padding: 0.5rem 0.625rem;
+  font-family: var(--font-ui);
+  font-size: 1.075em;
+  background-color: var(--color-stripe);
+}
+
+.stats p {
+  margin-block-end: 0.125rem;
+}
+
+.stats > div > :last-child {
+  margin-block-end: 0;
+}
+
+li > p {
+  margin-block-end: 0;
+}
+
+.entity-image {
+  margin-block: 0.5rem 1rem;
+}
+
+.entity-image img {
+  margin-inline: auto;
+}
+
+.entity-footer hr {
+  margin-block: 0.5rem 0.625rem;
+}
+
+main.entity {
+  padding-block-end: 1rem;
+}
+
+.entity-footer .source {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 300;
+}
+
+.entity-footer .source p {
+  margin-block-end: 0;
+}

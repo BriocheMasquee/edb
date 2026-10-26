@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="entity">
+  <header class="entity-header">
+    <h1 class="title">{{ name }}{% if type %}<img src="{{ env.systemURL|default: '/' }}icons/rule/{{ type }}.png" alt="">{% endif %}</h1>
+    {% if type %}<h4 class="kind">{{ type | map: 'RuleType' }}</h4>{% endif %}
+  </header>
+  {% if descr %}<div class="description" data-page-content>{{ descr|md }}</div>{% endif %}
+  {% include "footer.html" %}
+</main>
+{% endblock %}

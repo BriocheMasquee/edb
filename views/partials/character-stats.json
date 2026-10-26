@@ -8,7 +8,7 @@
       "padding": [2, 8],
       "views": [
         {
-          "style": "subtitle",
+          "style": "bandHeading",
           "width": -1,
           "value": "{{'Character.Resistances'|l}}"
         }
@@ -28,7 +28,7 @@
           "height": 20,
           "alignment": "center",
           "borderWidth": 1,
-          "borderColor": "#488898",
+          "borderColor": "#267890",
           "cornerRadius": 4,
           "views": [
             {
@@ -442,7 +442,7 @@
       "padding": [2, 8],
       "views": [
         {
-          "style": "subtitle",
+          "style": "bandHeading",
           "width": -1,
           "value": "{{'Character.Skills'|l}}"
         }
